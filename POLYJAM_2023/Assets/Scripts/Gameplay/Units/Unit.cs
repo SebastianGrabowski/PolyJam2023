@@ -18,11 +18,12 @@ namespace Gameplay.Units
         public float AttackRange;
         public float MoveSpeed;
 
+        protected Unit _ActiveEnemy;
 
         public void ApplyDamage(float value)
         {
-            BaseHP = Mathf.Clamp(BaseHP + value, 0.0f, BaseHP);
-            if(BaseHP <= 0.0f)
+            HP = Mathf.Clamp(HP - value, 0.0f, BaseHP);
+            if(HP <= 0.0f)
             {
                 AllUnits.Remove(this);
                 Destroy(gameObject);
@@ -31,6 +32,7 @@ namespace Gameplay.Units
 
         private void Start()
         {
+            HP = BaseHP;
             AllUnits.Add(this);
             OnStart();
         }

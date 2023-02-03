@@ -171,9 +171,9 @@ MonoBehaviour:
   _Rigidbody: {fileID: 7409708022038805810}
   BaseHP: 130
   HP: 130
-  Attack: 2
+  Attack: 55
   AttackSpeed: 1
-  AttackRange: 2
+  AttackRange: 3
   MoveSpeed: 0.5
   Cost: 3
   GodOwnerID: 0

@@ -50,9 +50,9 @@ MonoBehaviour:
   _Rigidbody: {fileID: 1530173175176653708}
   BaseHP: 50
   HP: 50
-  Attack: 2
+  Attack: 20
   AttackSpeed: 3
-  AttackRange: 3
+  AttackRange: 5
   MoveSpeed: 2
 --- !u!58 &3452006173752024388
 CircleCollider2D:

@@ -9,7 +9,55 @@ namespace Gameplay.Units
     
         public int Cost;
         public int GodOwnerID;
+        
+        private float _AttackT;
 
+        void Update()
+        {
+            var middleDist = Vector2.Distance(transform.position, Vector2.zero);
+            
+            var dir = Vector2.zero;
 
+            if(_ActiveEnemy == null)
+            {
+                _ActiveEnemy = GetNearestUnit();
+            } else
+            {
+                dir = ((Vector2)_ActiveEnemy.transform.position - (Vector2)transform.position).normalized;
+                var d = Vector2.Distance(_ActiveEnemy.transform.position, transform.position);
+                if(d <= AttackRange)
+                {
+                    _AttackT += Time.deltaTime;
+                    if(_AttackT >= AttackSpeed)
+                    {
+                        _AttackT = 0.0f;
+                        _ActiveEnemy.ApplyDamage(Attack);
+                    }
+                }
+            }
+
+            _Rigidbody.velocity = dir * MoveSpeed;
+
+        }
+        protected Unit GetNearestUnit()
+        {
+            var d = float.MaxValue;
+            Unit result = null;
+            var pos = transform.position;
+            for(var i = 0; i < AllUnits.Count; i++)
+            {
+                if(AllUnits[i] is EnemyUnit)
+                {
+                    var dd = Vector2.Distance(AllUnits[i].transform.position, pos);
+                    if(dd < d)
+                    {
+                        d = dd;
+                        result = AllUnits[i];
+                    }
+                }
+            }
+
+            return result;
+        }
     }
 }
