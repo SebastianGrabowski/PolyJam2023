@@ -10,6 +10,7 @@ public class GodObject : MonoBehaviour
     
     private UIController controllerUI;
 
+    private bool isMouseOver;
     private float TimeElapsed;
 
     private void Awake()
@@ -25,12 +26,18 @@ public class GodObject : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Debug.Log("OnMouseEnter");
-        controllerUI.OnGodSelected?.Invoke(GodData);
+        isMouseOver = true;
+    }
+
+    private void OnMouseExit()
+    {
+        isMouseOver = false;
     }
 
     void Update()
     {
+        if(isMouseOver && Input.GetMouseButtonDown(0)) controllerUI.OnGodSelected?.Invoke(GodData);
+
         if(Time.time >= TimeElapsed)
         {
             GodEffect();
@@ -45,6 +52,7 @@ public class GodObject : MonoBehaviour
             var spawnPos = Random.insideUnitCircle * GodData.Range;
             Instantiate(GodData.AbilityPrefab, spawnPos, Quaternion.identity);
         }
+         
         // else if(GodData.AbilityType == AbilityType.FireBall)
         // {
         //     var spawnPos = Random.insideUnitCircle * GodData.Range;
