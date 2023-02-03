@@ -7,8 +7,9 @@ namespace Gameplay.Units
     public class PlayerSpawner : MonoBehaviour
     {
         [SerializeField]private GameObject _Pointer;
-        [SerializeField]private PlayerUnit[] _PlayerUnits;
         [SerializeField]private Camera _Cam;
+
+        private PlayerUnit _ActiveUnit;
 
         private Plane _Plane;
 
@@ -31,14 +32,15 @@ namespace Gameplay.Units
             _Plane = new Plane(Vector3.forward, 0.0f);
         }
 
+        public void SetUnit(PlayerUnit unit)
+        {
+            _ActiveUnit = unit;
+            Active = _ActiveUnit != null;
+        }
+
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                Active = !Active;
-            }
-
             _Pointer.gameObject.SetActive(Active);
 
             if (Active)
@@ -60,13 +62,16 @@ namespace Gameplay.Units
                 if(Input.GetMouseButtonDown(0))
                 {
                     //spawn
-                    var unit = _PlayerUnits[Random.Range(0, _PlayerUnits.Length)];
-                    if (unit.Cost <= CurrencyController.Value)
+                    if (_ActiveUnit.Cost <= CurrencyController.Value)
                     {
-                        CurrencyController.Value -= unit.Cost;
-                        var newUnit = Instantiate(unit);
+                        CurrencyController.Value -= _ActiveUnit.Cost;
+                        var newUnit = Instantiate(_ActiveUnit);
                         newUnit.transform.position = pos;
                     }
+                }
+                if(Input.GetMouseButtonDown(1))
+                {
+                    SetUnit(null);
                 }
             }
         }
