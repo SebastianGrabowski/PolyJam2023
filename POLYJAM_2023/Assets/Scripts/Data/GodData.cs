@@ -13,11 +13,11 @@ public class GodData
 
     public Sprite Sprite;
     public Sprite IconUI;
+    
+    public Abillity Abillity;
+    public AbillityType AbillityType;
 
-    public GameObject AbilityPrefab;
-    public AbilityType AbilityType;
-
-    public GodData(string name, string desc, float damage, float range, float rate, Sprite sprite, Sprite iconUI, AbilityType abilityType, GameObject abilityPrefab)
+    public GodData(string name, string desc, float damage, float range, float rate, Sprite sprite, Sprite iconUI, AbillityType abilityType, Abillity abillity)
     {
         Name = name;
         Description = desc;
@@ -26,7 +26,7 @@ public class GodData
         Rate = rate;
         Sprite = sprite;
         IconUI = iconUI;
-        AbilityPrefab = abilityPrefab;
-        AbilityType = abilityType;
+        Abillity = abillity;
+        AbillityType = abilityType;
     }
 }

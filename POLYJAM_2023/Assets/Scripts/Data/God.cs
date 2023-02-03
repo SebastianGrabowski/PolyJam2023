@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AbilityType
+public enum AbillityType
 {
 	Thunder,
 	FireBall
@@ -13,17 +13,20 @@ public class God : ScriptableObject
 {
     public int ID;
 
+	[Space(10)]
     public string Name;
     public string Description;
 	
+	[Space(10)]
 	public float Damage;
 	public float Range;
 	public float Rate;
 
+	[Space(10)]
 	public Sprite Sprite;
 	public Sprite IconUI;
 
-	public GameObject AbilityPrefab;
-
-	public AbilityType AbilityType;
+	[Space(10)]
+	public Abillity Abillity;
+	public AbillityType AbillityType;
 }

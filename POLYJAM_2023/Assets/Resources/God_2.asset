@@ -20,5 +20,5 @@ MonoBehaviour:
   Rate: 2
   Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   IconUI: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  AbilityPrefab: {fileID: 3832524839336736180, guid: a45945ec1acba694da54a34bed40f584, type: 3}
-  AbilityType: 0
+  Abillity: {fileID: 1569053232800555188, guid: 4836035bf730aa04bb58c04918ef2110, type: 3}
+  AbillityType: 1
