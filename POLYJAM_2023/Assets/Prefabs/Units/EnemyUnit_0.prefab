@@ -143,6 +143,7 @@ MonoBehaviour:
   AttackSpeed: 1
   AttackRange: 2
   MoveSpeed: 1
+  CurrencyForKill: 1
 --- !u!58 &4457634962059235161
 CircleCollider2D:
   m_ObjectHideFlags: 0

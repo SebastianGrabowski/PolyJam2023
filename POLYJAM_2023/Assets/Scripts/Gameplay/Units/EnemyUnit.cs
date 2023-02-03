@@ -7,7 +7,14 @@ namespace Gameplay.Units
     public class EnemyUnit : Unit
     {
 
+        public int CurrencyForKill;
+
         private float _AttackT;
+
+        protected override void DeadHandler()
+        {
+            CurrencyController.Value += CurrencyForKill;
+        }
 
         void Update()
         {
