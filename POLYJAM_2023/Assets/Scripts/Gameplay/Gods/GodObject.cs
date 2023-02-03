@@ -43,10 +43,11 @@ public class GodObject : MonoBehaviour
 
         if(Time.time >= TimeElapsed)
         {
-            if(GodData.AbillityType == AbillityType.Thunder) ThunderAbillity();
-            else if(GodData.AbillityType == AbillityType.FireBall) FireBallAbillity();
-            
             targetUnit = GetNearestUnit();
+
+            if(GodData.AbillityType == AbillityType.Thunder) ThunderAbillity();
+            else if(GodData.AbillityType == AbillityType.FireBall && targetUnit != null) FireBallAbillity();
+            
             TimeElapsed = Time.time + GodData.Rate;
         }
 
@@ -72,23 +73,20 @@ public class GodObject : MonoBehaviour
 
     private Unit GetNearestUnit()
     {
-        var d = float.MaxValue;
-        Unit result = null;
         var pos = transform.position;
         for(var i = 0; i < Unit.AllUnits.Count; i++)
         {
             if(Unit.AllUnits[i] is EnemyUnit)
             {
                 var dd = Vector2.Distance(Unit.AllUnits[i].transform.position, pos);
-                if(dd < d)
+                if(dd <= GodData.Range)
                 {
-                    d = dd;
-                    result = Unit.AllUnits[i];
+                    return Unit.AllUnits[i];
                 }
             }
         }
 
-        return result;
+        return null;
     }
 
 

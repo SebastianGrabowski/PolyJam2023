@@ -18,6 +18,7 @@ public class Abillity : MonoBehaviour
     {
         if(other.transform.CompareTag("Enemy"))
         {
+            Debug.Log("other: "+other.name+" Damage: "+Damage);
             other.GetComponent<EnemyUnit>().ApplyDamage(Damage);
             Destroy(gameObject);
         }

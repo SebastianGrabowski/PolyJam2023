@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1569053232800555188}
   - component: {fileID: 1569053232800555191}
   - component: {fileID: 8834818242858142551}
+  - component: {fileID: 9026071369348925571}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   velocity: 2
   timeToDestroy: 5
   abilityType: 1
+  Damage: 0
 --- !u!212 &1569053232800555191
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -122,3 +124,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &9026071369348925571
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569053232800555190}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
