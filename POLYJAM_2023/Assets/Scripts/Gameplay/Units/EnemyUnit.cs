@@ -21,6 +21,16 @@ namespace Gameplay.Units
                 if(_ActiveEnemy == null)
                 {
                     dir = (Vector2.zero - (Vector2)transform.position).normalized;
+                    var d = Vector2.Distance((Vector2)transform.position, Vector2.zero);
+                    if(d <= AttackRange)
+                    {
+                         _AttackT += Time.deltaTime;
+                        if(_AttackT >= AttackSpeed)
+                        {
+                            _AttackT = 0.0f;
+                            FindObjectOfType<Gameplay.Tree>()?.ApplyDamage(Attack);
+                        }
+                    }
                 }
             } else
             {
