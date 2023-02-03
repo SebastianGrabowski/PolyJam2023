@@ -7,6 +7,7 @@ namespace Gameplay.Units
     public class PlayerUnit : Unit
     {
     
+        public Sprite BuyIcon;
         public int Cost;
         public int GodOwnerID;
         

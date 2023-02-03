@@ -10,6 +10,8 @@ namespace Gameplay.Units
     
         public static List<Unit> AllUnits = new List<Unit>();
 
+        public string DisplayName;
+
         public float BaseHP;
         public float HP;
 
