@@ -4,13 +4,8 @@ namespace Gameplay.Units
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class PlayerUnit : MonoBehaviour
+    public class EnemySpawner : MonoBehaviour
     {
-    
-        public int Cost;
-        public int GodOwnerID;
-
-
         // Start is called before the first frame update
         void Start()
         {
