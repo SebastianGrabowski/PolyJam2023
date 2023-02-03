@@ -54,15 +54,19 @@ public class GameController : MonoBehaviour
     public void HandleReplay()
     {
         //reset all statics etc
-        Gameplay.Units.Unit.AllUnits.Clear();
+        
 
         //reload scene, fade before????
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        FindObjectOfType<Fade>().FadeOut(()=>{ 
+            Gameplay.Units.Unit.AllUnits.Clear(); 
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0); 
+            });
+        
     }
 
     public void HandleExit()
     {
         //fade before????
-        Application.Quit();
+        FindObjectOfType<Fade>().FadeOut(()=>{ Application.Quit(); });
     }
 }

@@ -15,6 +15,9 @@ namespace Gameplay.Units
 
         void Update()
         {
+            if(GameController.Instance.IsGameOver)
+                return;
+
             _Time += Time.deltaTime;
             if(_Time >= _Interval)
             {
