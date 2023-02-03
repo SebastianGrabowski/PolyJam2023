@@ -48,8 +48,11 @@ namespace Gameplay.Units
             }
 
             _Rigidbody.velocity = dir * MoveSpeed;
-
+            UpdateLockMove();
+            UpdateAnim();
+            UpdateDir();
         }
+
         protected Unit GetNearestUnit(float maxDistance)
         {
             var d = float.MaxValue;

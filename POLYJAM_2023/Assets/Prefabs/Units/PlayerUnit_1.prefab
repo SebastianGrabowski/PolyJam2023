@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1601936318342930782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,13 +169,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Rigidbody: {fileID: 7409708022038805810}
+  _View: {fileID: 6881603275728757329}
+  _AnimAngleMinMax: 15
+  _AnimAngleSpeed: 2
+  _AnimJumpPos: {x: 0, y: 0.1, z: 0}
   DisplayName: Topielec
   BaseHP: 130
   HP: 130
   Attack: 55
   AttackSpeed: 1
   AttackRange: 3
-  MoveSpeed: 0.5
+  MoveSpeed: 0.7
   BuyIcon: {fileID: 21300000, guid: 61ac40b257b3a994f841856ad38b2b6b, type: 3}
   Cost: 3
   GodOwnerID: 0
