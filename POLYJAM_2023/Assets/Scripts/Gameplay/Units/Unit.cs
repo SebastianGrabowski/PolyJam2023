@@ -6,25 +6,40 @@ namespace Gameplay.Units
 
     public class Unit : MonoBehaviour
     {
+        [SerializeField]protected Rigidbody2D _Rigidbody;
     
-        public int BaseHP;
-        public int HP;
+        public static List<Unit> AllUnits = new List<Unit>();
+
+        public float BaseHP;
+        public float HP;
 
         public float Attack;
         public float AttackSpeed;
         public float AttackRange;
         public float MoveSpeed;
 
-        // Start is called before the first frame update
-        void Start()
+
+        public void ApplyDamage(float value)
         {
-        
+            BaseHP = Mathf.Clamp(BaseHP + value, 0.0f, BaseHP);
+            if(BaseHP <= 0.0f)
+            {
+                AllUnits.Remove(this);
+                Destroy(gameObject);
+            }
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Start()
         {
-        
+            AllUnits.Add(this);
+            OnStart();
         }
+
+        protected virtual void OnStart()
+        {
+
+        }
+
+
     }
 }

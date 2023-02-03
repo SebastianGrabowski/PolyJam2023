@@ -6,16 +6,27 @@ namespace Gameplay.Units
 
     public class EnemySpawner : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        [SerializeField]private EnemyUnit[] _Units;
+        [SerializeField]private float _Interval;
+        [SerializeField]private int _MinCount;
+        [SerializeField]private int _MaxCount;
 
-        // Update is called once per frame
+        private float _Time;
+
         void Update()
         {
-        
+            _Time += Time.deltaTime;
+            if(_Time >= _Interval)
+            {
+                _Time = 0.0f;
+                var count = Random.Range(_MinCount, _MaxCount+1);
+                for(var i = 0; i < count; i++)
+                {
+                    var unit = _Units[Random.Range(0, _Units.Length)];
+                    var newUnit = Instantiate(unit);
+                    newUnit.transform.position = transform.position + ((Vector3)(Random.insideUnitCircle * Vector2.one));
+                }
+            }
         }
     }
 }

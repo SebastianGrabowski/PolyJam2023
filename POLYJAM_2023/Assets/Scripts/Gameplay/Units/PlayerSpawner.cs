@@ -6,16 +6,69 @@ namespace Gameplay.Units
 
     public class PlayerSpawner : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField]private GameObject _Pointer;
+        [SerializeField]private PlayerUnit[] _PlayerUnits;
+        [SerializeField]private Camera _Cam;
+
+        private Plane _Plane;
+
+        private bool _Active;
+        public bool Active
         {
-        
+            get => _Active;
+            set
+            {
+                if(_Active != value)
+                {
+                    _Active = value;
+                    _Pointer.SetActive(_Active);
+                }
+            }
+        }
+
+        private void Start()
+        {
+            _Plane = new Plane(Vector3.forward, 0.0f);
         }
 
         // Update is called once per frame
         void Update()
         {
-        
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Active = !Active;
+            }
+
+            _Pointer.gameObject.SetActive(Active);
+
+            if (Active)
+            {
+                
+                Vector2 pos = Vector2.zero;
+                var ray = _Cam.ScreenPointToRay(Input.mousePosition);   
+                if (_Plane.Raycast(ray, out var distance))
+                {
+                    pos = ray.GetPoint(distance);
+                } else
+                {
+                    return;
+                }
+
+                _Pointer.transform.position = pos;
+
+
+                if(Input.GetMouseButtonDown(0))
+                {
+                    //spawn
+                    var unit = _PlayerUnits[Random.Range(0, _PlayerUnits.Length)];
+                    if (unit.Cost <= CurrencyController.Value)
+                    {
+                        CurrencyController.Value -= unit.Cost;
+                        var newUnit = Instantiate(unit);
+                        newUnit.transform.position = pos;
+                    }
+                }
+            }
         }
     }
 }

@@ -18,5 +18,10 @@ namespace Gameplay
                 OnChanged?.Invoke();
             }
         }
+
+        private void Start()
+        {
+            Value = 100;
+        }
     }
 }
