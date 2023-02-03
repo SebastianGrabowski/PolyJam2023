@@ -41,7 +41,8 @@ namespace Gameplay
             HP -= value;
             if(HP <= 0.0f)
             {
-                Destroy(gameObject);
+                GameController.Instance.HandleGameOver();
+                //Destroy(gameObject);
             }
         }
     }
