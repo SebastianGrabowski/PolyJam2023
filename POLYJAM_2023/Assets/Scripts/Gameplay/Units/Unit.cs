@@ -49,9 +49,12 @@ namespace Gameplay.Units
             if(HP <= 0.0f)
             {
                 AllUnits.Remove(this);
+                DeadHandler();
                 Destroy(gameObject);
             }
         }
+
+        protected virtual void DeadHandler() { }
 
         private void Start()
         {
