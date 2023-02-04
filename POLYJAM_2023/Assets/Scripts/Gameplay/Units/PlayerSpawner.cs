@@ -6,8 +6,10 @@ namespace Gameplay.Units
 
     public class PlayerSpawner : MonoBehaviour
     {
-        [SerializeField]private GameObject _Pointer;
+        [SerializeField]private SpriteRenderer _Pointer;
         [SerializeField]private Camera _Cam;
+        [SerializeField]private Color _ValidColor;
+        [SerializeField]private Color _InvalidColor;
 
         private PlayerUnit _ActiveUnit;
 
@@ -22,7 +24,7 @@ namespace Gameplay.Units
                 if(_Active != value)
                 {
                     _Active = value;
-                    _Pointer.SetActive(_Active);
+                    _Pointer.gameObject.SetActive(_Active);
                 }
             }
         }
@@ -49,11 +51,15 @@ namespace Gameplay.Units
             if (Active)
             {
                 
+                var validDistance = false;
                 Vector2 pos = Vector2.zero;
                 var ray = _Cam.ScreenPointToRay(Input.mousePosition);   
                 if (_Plane.Raycast(ray, out var distance))
                 {
                     pos = ray.GetPoint(distance);
+                    var d = Vector2.Distance(Vector2.zero, pos);
+                    validDistance = d > 4.0f;
+                    _Pointer.color = validDistance ? _ValidColor : _InvalidColor;
                 } else
                 {
                     return;
@@ -62,7 +68,7 @@ namespace Gameplay.Units
                 _Pointer.transform.position = pos;
 
 
-                if(Input.GetMouseButtonDown(0))
+                if(Input.GetMouseButtonDown(0) && validDistance)
                 {
                     //spawn
                     if (_ActiveUnit.Cost <= CurrencyController.Value)
