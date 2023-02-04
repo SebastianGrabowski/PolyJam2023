@@ -42,6 +42,7 @@ namespace Gameplay.Units
                         {
                             _AttackT = 0.0f;
                             FindObjectOfType<Gameplay.Tree>()?.ApplyDamage(Attack);
+                            PlayAttackSound();
                         }
                     }
                 }
@@ -56,6 +57,7 @@ namespace Gameplay.Units
                     {
                         _AttackT = 0.0f;
                         _ActiveEnemy.ApplyDamage(Attack);
+                        PlayAttackSound();
                     }
                 }
             }

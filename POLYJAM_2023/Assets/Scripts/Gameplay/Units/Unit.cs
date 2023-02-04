@@ -15,6 +15,8 @@ namespace Gameplay.Units
         [SerializeField]private float _AnimAngleMinMax;
         [SerializeField]private float _AnimAngleSpeed;
         [SerializeField]private Vector3 _AnimJumpPos;
+        [SerializeField]private AudioClip _AttackSound;
+        [SerializeField]private AudioClip _DeathSound;
 
         public static List<Unit> AllUnits = new List<Unit>();
 
@@ -53,6 +55,7 @@ namespace Gameplay.Units
             HP = Mathf.Clamp(HP - value, 0.0f, BaseHP);
             if(HP <= 0.0f)
             {
+                PlayDeathSound();
                 AllUnits.Remove(this);
                 DeadHandler();
                 Destroy(gameObject);
@@ -117,5 +120,8 @@ namespace Gameplay.Units
                 _LockMoveTime = 0.0f;
             }
         }
+
+        public void PlayAttackSound() { AudioController.Instance.PlaySound(_AttackSound); }
+        public void PlayDeathSound() { AudioController.Instance.PlaySound(_DeathSound); }
     }
 }
