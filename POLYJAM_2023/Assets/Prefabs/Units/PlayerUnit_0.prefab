@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036639286543519550}
   - component: {fileID: 5550612458504265335}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BuffIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6881603275728757329}
   - component: {fileID: 6881603275728757330}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 4457634962059235161}
   - component: {fileID: 7409708022038805810}
   - component: {fileID: 1601936318342930782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerUnit_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ MonoBehaviour:
   _Rigidbody: {fileID: 7409708022038805810}
   _View: {fileID: 6881603275728757329}
   _AnimAngleMinMax: 15
-  _AnimAngleSpeed: 2
+  _AnimAngleSpeed: 4
   _AnimJumpPos: {x: 0, y: 0.1, z: 0}
   _AttackSound: {fileID: 8300000, guid: 146fba6e019e80544942274bb0801155, type: 3}
   _DeathSound: {fileID: 8300000, guid: 397759c374473f8468348127e3209f30, type: 3}
@@ -268,12 +268,12 @@ MonoBehaviour:
   BaseHP: 240
   HP: 240
   Attack: 35
-  AttackSpeed: 0.5
+  AttackSpeed: 0.25
   AttackRange: 4
-  MoveSpeed: 1
+  MoveSpeed: 2
   BuffIcon: {fileID: 2816726071493446491}
   BuyIcon: {fileID: 21300000, guid: 9f6a0fc8997a79c4a8e78bed499302cb, type: 3}
-  Cost: 2
+  Cost: 5
   GodOwnerID: 0
 --- !u!1 &7735874038458445821
 GameObject:
@@ -285,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6880444298768841237}
   - component: {fileID: 383707816014489577}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3594321433281251742}
   - component: {fileID: 3306243345158778356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5933471284371203324}
   - component: {fileID: 5933471284371203327}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 5933471284991857318}
   - component: {fileID: 913288927069642209}
   - component: {fileID: 7720649582105794045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyUnit_1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ MonoBehaviour:
   _Rigidbody: {fileID: 7720649582105794045}
   _View: {fileID: 5933471284371203324}
   _AnimAngleMinMax: 5
-  _AnimAngleSpeed: 3
+  _AnimAngleSpeed: 5
   _AnimJumpPos: {x: 0, y: 0.05, z: 0}
   _AttackSound: {fileID: 8300000, guid: 146fba6e019e80544942274bb0801155, type: 3}
   _DeathSound: {fileID: 8300000, guid: 4b41ea0053303be48ad493a7539538fb, type: 3}
@@ -231,9 +231,9 @@ MonoBehaviour:
   BaseHP: 130
   HP: 130
   Attack: 25
-  AttackSpeed: 0.5
+  AttackSpeed: 0.25
   AttackRange: 6
-  MoveSpeed: 0.7
+  MoveSpeed: 1.4
   _DeathParticles: {fileID: 2577416468800591430}
   CurrencyForKill: 5
 --- !u!58 &913288927069642209
@@ -319,6 +319,10 @@ PrefabInstance:
     - target: {fileID: 7298654919165060695, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298654919165060712, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7298654919592390918, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
       propertyPath: m_Pivot.x
@@ -409,6 +413,10 @@ PrefabInstance:
       value: ScoreParticle
       objectReference: {fileID: 0}
     - target: {fileID: 7298654919592390919, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298654919592390919, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -431,6 +439,10 @@ PrefabInstance:
     - target: {fileID: 7298654919953815931, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
       propertyPath: m_RenderAlignment
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298654919953815933, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
