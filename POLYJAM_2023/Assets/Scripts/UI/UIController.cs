@@ -20,12 +20,13 @@ public class UIController : MonoBehaviour
 
 	private void UpdateSelectedGod(GodData godData)
 	{
+		Debug.Log("UpdateSelectedGod: "+godData.Name);
 		GodPanel.DisplayGodData(godData);
 	}
 
 	public void DisableGodPanel()
 	{
-		if(GodPanel.view.activeInHierarchy) GodPanel.Disable();
+		//if(GodPanel.view.activeInHierarchy) GodPanel.Disable();
 	}
 
 }

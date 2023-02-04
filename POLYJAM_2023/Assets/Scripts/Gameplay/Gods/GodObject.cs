@@ -6,20 +6,15 @@ using Gameplay.Units;
 public class GodObject : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject rangeDisplayer;
 
     public GodData GodData { get; private set; }
     
-    private UIController controllerUI;
     private Abillity currentAbillity;
     private Unit targetUnit;
 
     private bool isMouseOver;
     private float TimeElapsed;
-
-    private void Awake()
-    {
-        controllerUI = FindObjectOfType<UIController>(); 
-    }
 
     public void SetGod(GodData data)
     {
@@ -27,19 +22,23 @@ public class GodObject : MonoBehaviour
         spriteRenderer.sprite = data.Sprite;
     }
 
-    private void OnMouseEnter()
+    public void OnMouseOverGod()
     {
         isMouseOver = true;
+        var scale = (2 * GodData.GetSkillByType(SkillType.Range).GetValue(GodData));
+        rangeDisplayer.transform.localScale = new Vector3(scale, scale, rangeDisplayer.transform.localScale.z);
+        rangeDisplayer.SetActive(true);
     }
 
-    private void OnMouseExit()
+    public void MouseExitGod()
     {
         isMouseOver = false;
+        rangeDisplayer.SetActive(false);
     }
 
     void Update()
     {
-        if(isMouseOver && Input.GetMouseButtonDown(0)) controllerUI.OnGodSelected?.Invoke(GodData);
+        if(isMouseOver && Input.GetMouseButtonDown(0)) UIController.Instance.OnGodSelected?.Invoke(GodData);
 
         if(Time.time >= TimeElapsed)
         {

@@ -19,11 +19,12 @@ public class GameController : MonoBehaviour
     public bool IsGameOver { get; private set; }
 
     public static int RunCount;
-
-
+    
     public static GameController Instance;
 
     public bool Pause;
+
+    private GodObject currentGodHovered;
 
     void Awake()
     {
@@ -62,6 +63,21 @@ public class GameController : MonoBehaviour
         }
 
         ScaleTime = Mathf.Lerp(ScaleTime, Pause ? 0.0f : 1.0f, Time.unscaledDeltaTime * 5.0f);
+    }
+
+    private void FixedUpdate()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        if(hit.collider != null && hit.collider.CompareTag("God"))
+        {
+            currentGodHovered = hit.collider.GetComponentInParent<GodObject>();
+            if(currentGodHovered) currentGodHovered.OnMouseOverGod();
+        }
+        else if(currentGodHovered != null)
+        { 
+            currentGodHovered.MouseExitGod();
+            currentGodHovered = null;
+        }
     }
     
     public void HandleHelp()
