@@ -71,7 +71,7 @@ namespace Gameplay.Units
 
         private IEnumerator BackToNormal()
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(15f);
             BuffIcon.SetActive(false);
             Attack = attackBeforeBuff;
         }
