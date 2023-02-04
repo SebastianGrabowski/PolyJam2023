@@ -81,8 +81,8 @@ namespace Gameplay.Units
         {
             if(_LockMove)
                 return;
-            _AnimRotTime += Time.deltaTime * _AnimAngleSpeed;
-            _AnimJumpTime += Time.deltaTime * 10.0f;
+            _AnimRotTime += GameController.DT * _AnimAngleSpeed;
+            _AnimJumpTime += GameController.DT * 10.0f;
             var lerp = Mathf.Abs(Mathf.Sin(_AnimRotTime));
             _View.rotation = Quaternion.Lerp(
                 Quaternion.Euler(0.0f, 0.0f, -_AnimAngleMinMax),
@@ -107,7 +107,7 @@ namespace Gameplay.Units
         private Vector3 _LockMovePos;
         protected void UpdateLockMove()
         {
-            _LockMoveTime += Time.deltaTime;
+            _LockMoveTime += GameController.DT;
             if(_LockMoveTime > 0.2f)
             {
                 var d = Vector3.Distance(transform.position, _LockMovePos);

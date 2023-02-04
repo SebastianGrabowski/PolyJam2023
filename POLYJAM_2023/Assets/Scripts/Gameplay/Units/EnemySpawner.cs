@@ -20,7 +20,7 @@ namespace Gameplay.Units
             if(GameController.Instance.IsGameOver)
                 return;
 
-            _Time += Time.deltaTime;
+            _Time += GameController.DT;
             if(_Time >= _Interval)
             {
                 _Time = 0.0f;

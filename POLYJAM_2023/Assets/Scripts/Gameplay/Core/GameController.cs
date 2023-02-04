@@ -13,11 +13,17 @@ public class GameController : MonoBehaviour
     private List<GodData> currentGods = new List<GodData>();
 
     public UnityAction OnGameOver { get; set; }
+    public UnityAction OnPauseMenu { get; set; }
+    public UnityAction OnHelp { get; set; }
 
     public bool IsGameOver { get; private set; }
 
+    public static int RunCount;
+
 
     public static GameController Instance;
+
+    public bool Pause;
 
     void Awake()
     {
@@ -26,14 +32,46 @@ public class GameController : MonoBehaviour
         SpawnGod(startGod);
         availableGods = Resources.LoadAll<God>("");
         Debug.Log("availableGods: "+availableGods.Length);
+
     }
+
+    private IEnumerator Start()
+    {
+        yield return new WaitForSeconds(2.0f);
+        if (RunCount == 0)
+        {
+            HandleHelp();
+        }
+        RunCount++;
+    }
+
+    public static float DT;
+    public static float ScaleTime;
 
     void Update()
     {
+        DT = Time.deltaTime * ScaleTime;
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if(currentGods.Count <= availableGods.Length - 1) SpawnGod(availableGods[currentGods.Count]);
         }
+        
+        if(Input.GetKeyDown(KeyCode.Escape) && !UI.PauseMenu.IsOpen)
+        {
+            OnPauseMenu?.Invoke();
+        }
+
+        ScaleTime = Mathf.Lerp(ScaleTime, Pause ? 0.0f : 1.0f, Time.unscaledDeltaTime * 5.0f);
+    }
+    
+    public void HandleHelp()
+    {
+        OnHelp?.Invoke();
+    }
+
+    public void HandlePause()
+    {
+        OnPauseMenu?.Invoke();
     }
 
     private void SpawnGod(God god)
