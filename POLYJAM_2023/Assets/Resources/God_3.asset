@@ -20,7 +20,7 @@ MonoBehaviour:
   HoveredSprite: {fileID: 21300000, guid: fc0ce85e71f9851468a94adb022f2a58, type: 3}
   IconUI: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   CooldownUIColor: {r: 0.990566, g: 0.8895561, b: 0.14391239, a: 1}
-  Abillity: {fileID: 1569053232800555188, guid: 4836035bf730aa04bb58c04918ef2110, type: 3}
+  Abillity: {fileID: 1569053232800555188, guid: 605211a2bc4e38148b78a5c07be9c320, type: 3}
   AbillityType: 3
   RangeSprites:
   - {fileID: 21300000, guid: d3a865715253a4940a70fa5926b25454, type: 3}
@@ -31,7 +31,7 @@ MonoBehaviour:
   Skills:
   - SkillType: 0
     Value:
-    - 200
+    - 10
     - 50
     - 100
     - 150

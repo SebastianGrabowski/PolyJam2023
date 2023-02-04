@@ -78,15 +78,18 @@ public class GodObject : MonoBehaviour
             if(Time.time >= timeElapsed)
             {
                 imageFill.fillAmount = 1f;
-                targetUnit = GetNearestUnit();
 
-                if(GodData.AbillityType == AbillityType.Thunder && targetUnit != null) ThunderAbillity();
+                if(GodData.AbillityType != AbillityType.Sun) targetUnit = GetNearestUnit();
+                else targetUnit = GetNearestPlayerUnit();
+
+                if(GodData.AbillityType == AbillityType.Sun && targetUnit != null) SunAbillity();
+                else if(GodData.AbillityType == AbillityType.Thunder && targetUnit != null) ThunderAbillity();
                 else if(GodData.AbillityType == AbillityType.FireBall && targetUnit != null) FireBallAbillity();
 
                 rate = GodData.GetSkillByType(SkillType.Rate).GetValue(GodData);
                 currentCooldown = rate;
                 
-                timeElapsed = Time.time + GodData.GetSkillByType(SkillType.Rate).GetValue(GodData);
+                timeElapsed = Time.time + rate;
             }
             else
             {
@@ -120,9 +123,11 @@ public class GodObject : MonoBehaviour
 
     public void SunAbillity()
     {
-        var abillityObj = Instantiate(GodData.Abillity.gameObject, transform.position, Quaternion.identity);
-        currentAbillity = abillityObj.GetComponent<Abillity>();
-        currentAbillity.GodAbillityValue = GodData.GetSkillByType(SkillType.Damage).GetValue(GodData);
+        Debug.Log("SunAbillity buff");
+        // var abillityObj = Instantiate(GodData.Abillity.gameObject, targetUnit.transform.position, Quaternion.identity);
+        // currentAbillity = abillityObj.GetComponent<Abillity>();
+        // currentAbillity.GodAbillityValue = GodData.GetSkillByType(SkillType.Damage).GetValue(GodData);
+        ((PlayerUnit)targetUnit).AddBuff(GodData.GetSkillByType(SkillType.Damage).GetValue(GodData));
 
         ShowOutlineOnAbilityUse();
     }
@@ -138,6 +143,24 @@ public class GodObject : MonoBehaviour
         for(var i = 0; i < Unit.AllUnits.Count; i++)
         {
             if(Unit.AllUnits[i] is EnemyUnit)
+            {
+                var dd = Vector2.Distance(Unit.AllUnits[i].transform.position, pos);
+                if(dd <= GodData.GetSkillByType(SkillType.Range).GetValue(GodData))
+                {
+                    return Unit.AllUnits[i];
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private Unit GetNearestPlayerUnit()
+    {
+        var pos = transform.position;
+        for(var i = 0; i < Unit.AllUnits.Count; i++)
+        {
+            if(Unit.AllUnits[i] is PlayerUnit)
             {
                 var dd = Vector2.Distance(Unit.AllUnits[i].transform.position, pos);
                 if(dd <= GodData.GetSkillByType(SkillType.Range).GetValue(GodData))

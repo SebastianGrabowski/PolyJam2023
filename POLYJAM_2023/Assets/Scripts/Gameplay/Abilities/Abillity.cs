@@ -27,7 +27,7 @@ public class Abillity : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if(abilityType == AbillityType.Thunder || abilityType == AbillityType.Sun)
+        else if(abilityType == AbillityType.Thunder)
         {
             currentCollisions.Add(col.gameObject);
         }
@@ -36,13 +36,14 @@ public class Abillity : MonoBehaviour
     private void OnTriggerExit2D(Collider2D col)
     {
         if(abilityType == AbillityType.FireBall) return;
-        currentCollisions.Remove(col.gameObject);
+        //currentCollisions.Remove(col.gameObject);
     }
 
     private void Awake()
     {
         if(abilityType == AbillityType.FireBall) rb = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, timeToDestroy);
+
+        if(abilityType != AbillityType.Sun) Destroy(gameObject, timeToDestroy);
     }
 
     public void ThunderAbilitySetDamage()
@@ -60,15 +61,6 @@ public class Abillity : MonoBehaviour
             v.ApplyDamage(GodAbillityValue);
         }
     }
-    
-    public void BuffPlayerUnits()
-    {
-        foreach (var obj in currentCollisions)
-        {
-            var playerUnit = obj.GetComponent<PlayerUnit>();
-            if(playerUnit != null) playerUnit.AddBuff(GodAbillityValue);
-        } 
-    }
 
     public void UpdateAbillity(Transform targetTransform)
     {
@@ -79,6 +71,4 @@ public class Abillity : MonoBehaviour
             particleTransform.transform.rotation = transform.rotation;
         }
     }
-
-    
 }
