@@ -12,6 +12,8 @@ namespace Gameplay.Units
         public int GodOwnerID;
         
         private float _AttackT;
+
+        private float attackBeforeBuff;
         
         protected override void DeadHandler()
         {
@@ -56,6 +58,20 @@ namespace Gameplay.Units
             UpdateLockMove();
             UpdateAnim();
             UpdateDir();
+        }
+
+        public void AddBuff(float value)
+        {
+            attackBeforeBuff = Attack;
+            Attack += value;
+
+            StartCoroutine(BackToNormal());
+        }
+
+        private IEnumerator BackToNormal()
+        {
+            yield return new WaitForSeconds(5f);
+            Attack = attackBeforeBuff;
         }
 
         protected Unit GetNearestUnit()

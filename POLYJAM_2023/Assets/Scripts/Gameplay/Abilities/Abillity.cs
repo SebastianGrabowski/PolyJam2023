@@ -11,7 +11,8 @@ public class Abillity : MonoBehaviour
     [Space(10)]
     [SerializeField] private Transform particleTransform;
     [SerializeField] private AbillityType abilityType;
-    [HideInInspector] public float Damage;
+
+    [HideInInspector] public float GodAbillityValue;
 
     private List<GameObject> currentCollisions = new List<GameObject>();
     private Rigidbody2D rb;
@@ -22,13 +23,13 @@ public class Abillity : MonoBehaviour
         {
             if(col.transform.CompareTag("Enemy"))
             {
-                col.GetComponent<EnemyUnit>().ApplyDamage(Damage);
+                col.GetComponent<EnemyUnit>().ApplyDamage(GodAbillityValue);
                 Destroy(gameObject);
             }
         }
-        else if(abilityType == AbillityType.Thunder)
+        else if(abilityType == AbillityType.Thunder || abilityType == AbillityType.Sun)
         {
-            currentCollisions.Add (col.gameObject);
+            currentCollisions.Add(col.gameObject);
         }
     }
 
@@ -49,7 +50,16 @@ public class Abillity : MonoBehaviour
         foreach (var obj in currentCollisions)
         {
             var enemy = obj.GetComponent<EnemyUnit>();
-            if(enemy != null) enemy.ApplyDamage(Damage);
+            if(enemy != null) enemy.ApplyDamage(GodAbillityValue);
+        }
+    }
+    
+    public void BuffPlayerUnits()
+    {
+        foreach (var obj in currentCollisions)
+        {
+            var playerUnit = obj.GetComponent<PlayerUnit>();
+            if(playerUnit != null) playerUnit.AddBuff(GodAbillityValue);
         } 
     }
 

@@ -104,7 +104,7 @@ public class GodObject : MonoBehaviour
         var spawnPos = Random.insideUnitCircle * GodData.GetSkillByType(SkillType.Range).GetValue(GodData);
         var abillityObj = Instantiate(GodData.Abillity.gameObject, targetUnit.transform.position, Quaternion.identity);
         currentAbillity = abillityObj.GetComponent<Abillity>();
-        currentAbillity.Damage = GodData.GetSkillByType(SkillType.Damage).GetValue(GodData);
+        currentAbillity.GodAbillityValue = GodData.GetSkillByType(SkillType.Damage).GetValue(GodData);
 
         ShowOutlineOnAbilityUse();
     }
@@ -113,7 +113,16 @@ public class GodObject : MonoBehaviour
     {
         var abillityObj = Instantiate(GodData.Abillity.gameObject, shootingPoint.position, Quaternion.identity);
         currentAbillity = abillityObj.GetComponent<Abillity>();
-        currentAbillity.Damage = GodData.GetSkillByType(SkillType.Damage).GetValue(GodData);
+        currentAbillity.GodAbillityValue = GodData.GetSkillByType(SkillType.Damage).GetValue(GodData);
+
+        ShowOutlineOnAbilityUse();
+    }
+
+    public void SunAbillity()
+    {
+        var abillityObj = Instantiate(GodData.Abillity.gameObject, transform.position, Quaternion.identity);
+        currentAbillity = abillityObj.GetComponent<Abillity>();
+        currentAbillity.GodAbillityValue = GodData.GetSkillByType(SkillType.Damage).GetValue(GodData);
 
         ShowOutlineOnAbilityUse();
     }
@@ -140,6 +149,4 @@ public class GodObject : MonoBehaviour
 
         return null;
     }
-
-
 }

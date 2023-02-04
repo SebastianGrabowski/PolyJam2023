@@ -61,6 +61,7 @@ namespace UI
             {
                 StopCoroutine(_CoroutineCurrency);
             }
+            
             _CoroutineCurrency = StartCoroutine(UpdateCurrencyUpdate());
         }
 
