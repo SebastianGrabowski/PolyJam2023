@@ -23,10 +23,8 @@ public class UIController : MonoBehaviour
 
 	private void UpdateSelectedGod(GodData godData)
 	{
-		
 		canDisablePanel = false;
 		StopCoroutine(SetDisability());
-		Debug.Log("UpdateSelectedGod: "+godData.Name);
 		GodPanel.DisplayGodData(godData);
 
 		StartCoroutine(SetDisability());
@@ -42,7 +40,6 @@ public class UIController : MonoBehaviour
 	{
 		if(GodPanel.view.activeInHierarchy && canDisablePanel)
 		{
-			Debug.Log("Wylaczam panel");
 			GodPanel.Disable();
 			canDisablePanel = false;
 		}

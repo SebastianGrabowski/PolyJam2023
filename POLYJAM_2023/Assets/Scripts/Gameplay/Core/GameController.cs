@@ -5,8 +5,10 @@ using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
+
     [SerializeField] private GodObject godObject;
-    [SerializeField] private Transform[] godParents;
+    [SerializeField] private Transform[] spawnPositions;
+    [SerializeField] private Transform[] targetPositions;
 
     private God[] availableGods;
     private List<GodData> currentGods = new List<GodData>();
@@ -31,10 +33,7 @@ public class GameController : MonoBehaviour
         IsGameOver = false;
         
         availableGods = Resources.LoadAll<God>("");
-        foreach(var god in availableGods)
-        {
-            SpawnGod(god);
-        }
+        StartCoroutine(SpawnGods());
     }
 
     private IEnumerator Start()
@@ -61,9 +60,6 @@ public class GameController : MonoBehaviour
             _TimeUpdate -= 1.0f;
             Gameplay.TimeController.Value++;
         }
-
-        if(Input.GetKeyDown(KeyCode.Space) && currentGods.Count <= availableGods.Length - 1) 
-            SpawnGod(availableGods[currentGods.Count]);
 
         if(Input.GetKeyDown(KeyCode.Escape) && !UI.PauseMenu.IsOpen)
         {
@@ -98,13 +94,19 @@ public class GameController : MonoBehaviour
         OnPauseMenu?.Invoke();
     }
 
-    private void SpawnGod(God god)
+    private IEnumerator SpawnGods()
     {
-        var data = new GodData(god.Name, god.Description, god.Sprite, god.IdleGlowSprite, god.HoveredSprite, god.IconUI, god.AbillityType, god.Abillity, god.CooldownUIColor, god.Skills, god.RangeSprites);
-        currentGods.Add(data);
+        availableGods = Resources.LoadAll<God>("");
 
-        var obj = Instantiate(godObject, godParents[god.ID].position, Quaternion.identity);
-        obj.SetGod(data);
+        foreach(var god in availableGods)
+        {
+            yield return new WaitForSeconds(0.5f);
+            var data = new GodData(god.Name, god.Description, god.Sprite, god.IdleGlowSprite, god.HoveredSprite, god.IconUI, god.AbillityType, god.Abillity, god.CooldownUIColor, god.Skills, god.RangeSprites);
+            currentGods.Add(data);
+
+            var obj = Instantiate(godObject, spawnPositions[god.ID].position, Quaternion.identity);
+            obj.SetGod(data, targetPositions[god.ID]);
+        }
     }
 
     public void HandleGameOver()
