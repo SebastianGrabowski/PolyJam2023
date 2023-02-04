@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ac5eb5992acc747b75552c5caf9950, type: 3}
   m_Name: God_1
   m_EditorClassIdentifier: 
-  ID: 0
-  Name: FirstGod
-  Description: first god desc
-  Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  ID: 1
+  Name: Perun
+  Description: god desc temp
+  Sprite: {fileID: 21300000, guid: c374ce37168791e4d944068ec3a6aafc, type: 3}
   IconUI: {fileID: 21300000, guid: 01925796adc075a4ba43cac7c0475907, type: 3}
   Abillity: {fileID: 7246403073326237947, guid: a45945ec1acba694da54a34bed40f584, type: 3}
   AbillityType: 0

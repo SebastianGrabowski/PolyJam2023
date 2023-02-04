@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private God startGod;
     [SerializeField] private GodObject godObject;
     [SerializeField] private Transform[] godParents;
 
@@ -30,10 +29,12 @@ public class GameController : MonoBehaviour
     {
         Instance = this;
         IsGameOver = false;
-        SpawnGod(startGod);
+        
         availableGods = Resources.LoadAll<God>("");
-        Debug.Log("availableGods: "+availableGods.Length);
-
+        foreach(var god in availableGods)
+        {
+            SpawnGod(god);
+        }
     }
 
     private IEnumerator Start()

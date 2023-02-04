@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: God_3
   m_EditorClassIdentifier: 
   ID: 2
-  Name: Second God
-  Description: second god desc
-  Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  Name: Dadzbog
+  Description: god desc temp
+  Sprite: {fileID: 21300000, guid: 1731e841923a33e459cc154ff3858a62, type: 3}
   IconUI: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   Abillity: {fileID: 1569053232800555188, guid: 4836035bf730aa04bb58c04918ef2110, type: 3}
-  AbillityType: 1
+  AbillityType: 3
   Skills:
   - SkillType: 0
     Value:

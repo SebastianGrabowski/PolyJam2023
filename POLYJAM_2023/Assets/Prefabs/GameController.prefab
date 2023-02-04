@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5554674335062311309}
   - component: {fileID: 5000448908516768578}
   m_Layer: 0
-  m_Name: GodSpawnPoint_4
+  m_Name: GodSpawnPoint_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228789416925752897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: -0.75, z: 0}
+  m_LocalPosition: {x: 1.65, y: -2.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3856860583703651102}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5000448908516768578
 SpriteRenderer:
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3856860583192520849}
   - component: {fileID: 3856860583192520850}
   m_Layer: 0
-  m_Name: GodSpawnPoint_2
+  m_Name: GodSpawnPoint_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,12 +109,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3856860583192520848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 0, z: 0}
+  m_LocalPosition: {x: 4, y: -0.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3856860583703651102}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3856860583192520850
 SpriteRenderer:
@@ -197,9 +197,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3856860584178137849}
-  - {fileID: 3856860583192520849}
   - {fileID: 3856860583958223741}
   - {fileID: 5554674335062311309}
+  - {fileID: 3856860583192520849}
   m_Father: {fileID: 3856860584152564470}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 3856860583958223741}
   - component: {fileID: 3856860583958223742}
   m_Layer: 0
-  m_Name: GodSpawnPoint_3
+  m_Name: GodSpawnPoint_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,12 +228,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3856860583958223740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.45, y: -0.75, z: 0}
+  m_LocalPosition: {x: -1.65, y: -2.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3856860583703651102}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3856860583958223742
 SpriteRenderer:
@@ -336,9 +336,9 @@ MonoBehaviour:
   godObject: {fileID: 8075275802116636026, guid: 866579abe84be894d90e0ab07aa38439, type: 3}
   godParents:
   - {fileID: 3856860584178137849}
-  - {fileID: 3856860583192520849}
   - {fileID: 3856860583958223741}
   - {fileID: 5554674335062311309}
+  - {fileID: 3856860583192520849}
   Pause: 0
 --- !u!1 &3856860584178137848
 GameObject:
@@ -365,7 +365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3856860584178137848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: 0, z: 0}
+  m_LocalPosition: {x: -4, y: -0.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
