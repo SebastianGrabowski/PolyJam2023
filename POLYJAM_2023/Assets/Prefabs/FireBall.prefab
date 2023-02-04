@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb2c98a4d374a24ca78ae3309b5e23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 2
+  velocity: 5
   timeToDestroy: 5
   particleTransform: {fileID: 1699020761261808979}
   abilityType: 1

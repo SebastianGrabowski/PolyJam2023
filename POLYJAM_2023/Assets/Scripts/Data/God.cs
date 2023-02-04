@@ -32,5 +32,8 @@ public class God : ScriptableObject
 	public AbillityType AbillityType;
 
 	[Space(10)]
+	public Sprite[] RangeSprites;
+
+	[Space(10)]
 	public Skill[] Skills;
 }
