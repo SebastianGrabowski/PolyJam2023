@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4966409884930561047}
   - component: {fileID: 3457456105710802329}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BuffIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3268909683637994343}
   - component: {fileID: 1214888794212922361}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6881603275728757329}
   - component: {fileID: 6881603275728757330}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 4457634962059235161}
   - component: {fileID: 7409708022038805810}
   - component: {fileID: 1601936318342930782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerUnit_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

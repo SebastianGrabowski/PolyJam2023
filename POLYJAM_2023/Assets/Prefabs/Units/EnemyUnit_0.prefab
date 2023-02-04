@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8440295015604436068}
   - component: {fileID: 3363533719093792571}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6881603275728757329}
   - component: {fileID: 6881603275728757330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 6881603276852990987}
   - component: {fileID: 4457634962059235161}
   - component: {fileID: 7409708022038805810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyUnit_0
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -324,9 +324,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7298654919165060712, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7298654919592390919, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
       propertyPath: m_Name
       value: ScoreParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298654919592390919, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298654919953815933, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c72d4ba14129e7245ad06fd99810f13a, type: 3}
