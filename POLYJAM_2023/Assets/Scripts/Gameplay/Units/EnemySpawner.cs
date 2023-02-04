@@ -9,7 +9,10 @@ namespace Gameplay.Units
     {
 
         [SerializeField]private EnemyUnit[] _Units;
-        [SerializeField]private float _Interval;
+        [SerializeField]private float _FromTime;
+        [SerializeField]private float _ToTime;
+        [SerializeField]private float _IntervalMin;
+        [SerializeField]private float _IntervalMax;
         [SerializeField]private int _MinCount;
         [SerializeField]private int _MaxCount;
 
@@ -20,10 +23,15 @@ namespace Gameplay.Units
             if(GameController.Instance.IsGameOver)
                 return;
 
-            _Time += GameController.DT;
-            if(_Time >= _Interval)
+            if(TimeController.Value < _FromTime)
+                return;
+
+            if(TimeController.Value > _ToTime)
+                return;
+
+            _Time -= GameController.DT;
+            if(_Time <= 0.0f)
             {
-                _Time = 0.0f;
                 var count = Random.Range(_MinCount, _MaxCount+1);
                 for(var i = 0; i < count; i++)
                 {
@@ -31,6 +39,7 @@ namespace Gameplay.Units
                     var newUnit = Instantiate(unit);
                     newUnit.transform.position = transform.position + ((Vector3)(Random.insideUnitCircle * Vector2.one));
                 }
+                _Time = Random.Range(_IntervalMin, _IntervalMax);
             }
         }
     }

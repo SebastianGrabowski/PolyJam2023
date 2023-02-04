@@ -56,6 +56,7 @@ MonoBehaviour:
   _AttackSound: {fileID: 8300000, guid: 146fba6e019e80544942274bb0801155, type: 3}
   _DeathSound: {fileID: 8300000, guid: efd0d06fdee3dc249b67c12ef80b4df3, type: 3}
   _SpawnSound: {fileID: 0}
+  _Glow: {fileID: 0}
   DisplayName: 
   DisplayDesc: 
   BaseHP: 50
@@ -65,7 +66,7 @@ MonoBehaviour:
   AttackRange: 5
   MoveSpeed: 2
   _DeathParticles: {fileID: 885940913652584997}
-  CurrencyForKill: 3
+  CurrencyForKill: 6
 --- !u!58 &3452006173752024388
 CircleCollider2D:
   m_ObjectHideFlags: 0
