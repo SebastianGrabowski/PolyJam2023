@@ -32,14 +32,13 @@ public class GameController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            SpawnGod(availableGods[1]);
+            if(currentGods.Count <= availableGods.Length - 1) SpawnGod(availableGods[currentGods.Count]);
         }
     }
 
     private void SpawnGod(God god)
     {
-        var newSkillLevels = (int[])god.SkillLevels.Clone();
-        var data = new GodData(god.Name, god.Description, god.Damage, god.Range, god.Rate, newSkillLevels, god.Sprite, god.IconUI, god.AbillityType, god.Abillity);
+        var data = new GodData(god.Name, god.Description, god.Sprite, god.IconUI, god.AbillityType, god.Abillity, god.Skills);
         currentGods.Add(data);
 
         var obj = Instantiate(godObject, godParents[god.ID].position, Quaternion.identity);

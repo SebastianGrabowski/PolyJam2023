@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.EventSystems;
+using Gameplay;
 
 public class SkillItem : MonoBehaviour
 {
@@ -24,24 +22,32 @@ public class SkillItem : MonoBehaviour
         this.godData = godData;
         this.skillType = skillType;
 
-        skillValue.text = $"{skillType}: {godData.GetSkillValueBySkillType(skillType)}";
+        var skill = godData.GetSkillByType(skillType);
         var skillLevel = godData.SkillLevels[(int)skillType];
-        for(int i = 0; i < skillLevel; i++)
+
+        skillValue.text = $"{skillType}: {skill.GetValue(godData)}";
+
+        for(int i = 0; i < skillLevel + 1; i++)
         {
-            levelBoxDisplay[i].color = active;
+            if(i <= levelBoxDisplay.Length-1) levelBoxDisplay[i].color = active;
         }   
     }
 
     public void UpgradeSkill()
     {
-        godData.SkillLevelUp(skillType);
+        var skillCost = godData.GetSkillByType(skillType).GetCost(godData);
 
-        skillValue.text = $"{skillType}: {godData.GetSkillValueBySkillType(skillType)}";
+        if(CurrencyController.Value >= skillCost) CurrencyController.Value -= skillCost;
+        else return;
 
-        var skillLevel = godData.SkillLevels[(int)skillType];
-        for(int i = 0; i < skillLevel; i++)
+        var skillLevel = godData.SkillLevelUp(skillType);
+        var skill = godData.GetSkillByType(skillType);
+
+        skillValue.text = $"{skillType}: {skill.GetValue(godData)}";
+
+        for(int i = 0; i < skillLevel + 1; i++)
         {
-            levelBoxDisplay[i].color = active;
+            if(i <= levelBoxDisplay.Length-1) levelBoxDisplay[i].color = active;
         }
     }
 }

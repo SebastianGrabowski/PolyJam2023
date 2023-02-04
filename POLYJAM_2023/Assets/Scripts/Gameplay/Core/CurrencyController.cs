@@ -21,7 +21,7 @@ namespace Gameplay
 
         private void Start()
         {
-            Value = 100;
+            Value = 1000;
         }
     }
 }

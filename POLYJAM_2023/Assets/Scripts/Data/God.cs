@@ -16,14 +16,6 @@ public class God : ScriptableObject
 	[Space(10)]
     public string Name;
     public string Description;
-	
-	[Space(10)]
-	public float[] Damage;
-	public float[] Range;
-	public float[] Rate;
-
-	[Space(10)]
-	public int[] SkillLevels;
 
 	[Space(10)]
 	public Sprite Sprite;
@@ -32,4 +24,7 @@ public class God : ScriptableObject
 	[Space(10)]
 	public Abillity Abillity;
 	public AbillityType AbillityType;
+
+	[Space(10)]
+	public Skill[] Skills;
 }

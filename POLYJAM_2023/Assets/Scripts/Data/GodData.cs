@@ -1,24 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public enum SkillType
-{
-    Damage,
-    Range,
-    Rate
-}
 
 public class GodData
 {
+    public int[] SkillLevels = {0, 0, 0};
+
     public string Name;
     public string Description;
-
-    public float[] Damage;
-    public float[] Range;
-    public float[] Rate;
-
-    public int[] SkillLevels;
 
     public Sprite Sprite;
     public Sprite IconUI;
@@ -26,31 +14,37 @@ public class GodData
     public Abillity Abillity;
     public AbillityType AbillityType;
 
-    public GodData(string name, string desc, float[] damage, float[] range, float[] rate, int[] skillLevels, Sprite sprite, Sprite iconUI, AbillityType abilityType, Abillity abillity)
+    public Skill[] Skills;
+
+    public GodData(string name, string desc, Sprite sprite, Sprite iconUI, AbillityType abilityType, Abillity abillity, Skill[] skills)
     {
         Name = name;
         Description = desc;
-        Damage = damage;
-        Range = range;
-        Rate = rate;
         Sprite = sprite;
         IconUI = iconUI;
         Abillity = abillity;
         AbillityType = abilityType;
-        SkillLevels = skillLevels;
+        Skills = skills;
     }
 
-    public void SkillLevelUp(SkillType skill)
+    public int SkillLevelUp(SkillType skillType)
     {
-        if(SkillLevels[(int)skill] < 5) SkillLevels[(int)skill]++;
+        if(SkillLevels[(int)skillType] < 4) SkillLevels[(int)skillType]++;
+
+        return SkillLevels[(int)skillType];
+        //GetSkillByType(skillType).SkillLevel++;
+        // var currentLevel = SkillLevels[(int)skill];
+        // Debug.Log("SkillLeve: "+currentLevel+" skill: "+skill);
+        // if(SkillLevels[(int)skill] < 4) SkillLevels[(int)skill]++;
     }
 
-    public float GetSkillValueBySkillType(SkillType skill)
+    public Skill GetSkillByType(SkillType skillType)
     {
-        if(skill == SkillType.Damage) return Damage[SkillLevels[(int)skill]];
-        else if(skill == SkillType.Range) return Range[SkillLevels[(int)skill]];
-        else if(skill == SkillType.Rate) return Rate[SkillLevels[(int)skill]];
+        foreach(var skill in Skills)
+        {
+            if(skill.SkillType == skillType) return skill;
+        }
 
-        return 0f;
+        return null;
     }
 }

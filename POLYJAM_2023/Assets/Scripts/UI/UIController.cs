@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class UIController : MonoBehaviour
 {
-	[HideInInspector] public UnityEvent<GodData> OnGodSelected;
+	private static UIController instance;
+    public static UIController Instance { get { return instance; } }
 
-	public GodPanel GodPanel;
-	
-	public void Awake()
-	{
+    private void Awake()
+    {
+        if(instance != null && instance != this) Destroy(this.gameObject); 
+		else instance = this;
+
 		OnGodSelected.AddListener(UpdateSelectedGod);
-	}
+    }
+
+	[HideInInspector] public UnityEvent<GodData> OnGodSelected;
+	public GodPanel GodPanel;
+	public bool IsOverUI;
 
 	private void UpdateSelectedGod(GodData godData)
 	{
@@ -21,7 +25,7 @@ public class UIController : MonoBehaviour
 
 	public void DisableGodPanel()
 	{
-		GodPanel.Disable();
+		if(GodPanel.view.activeInHierarchy) GodPanel.Disable();
 	}
 
 }
