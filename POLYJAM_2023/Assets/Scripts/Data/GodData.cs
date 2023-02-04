@@ -17,8 +17,9 @@ public class GodData
     public Color CooldownUIColor;
 
     public Skill[] Skills;
+    public Sprite[] RangeSprites;
 
-    public GodData(string name, string desc, Sprite sprite, Sprite iconUI, AbillityType abilityType, Abillity abillity, Color cooldownUIColor, Skill[] skills)
+    public GodData(string name, string desc, Sprite sprite, Sprite iconUI, AbillityType abilityType, Abillity abillity, Color cooldownUIColor, Skill[] skills, Sprite[] rangeSprites)
     {
         Name = name;
         Description = desc;
@@ -28,6 +29,7 @@ public class GodData
         AbillityType = abilityType;
         Skills = skills;
         CooldownUIColor = cooldownUIColor;
+        RangeSprites = rangeSprites;
     }
 
     public int SkillLevelUp(SkillType skillType)

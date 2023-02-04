@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6510810496047686218}
   - component: {fileID: 3278037004704769596}
+  - component: {fileID: 1216362251310673633}
   m_Layer: 0
   m_Name: RangeDisplayer
   m_TagString: Untagged
@@ -101,7 +102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3265138160707870509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.050000012, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,9 +149,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8549595, g: 0.9528302, b: 0.25528654, a: 0.49803922}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: c4d364f93c9344d409556a216aacbf43, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -160,6 +161,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1216362251310673633
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265138160707870509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e79a9508f4f964546b6825b64c0f8abf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3590750068173068228
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageFill: {fileID: 8946120518836899664}
   spriteRenderer: {fileID: 3209600050257749704}
-  rangeDisplayer: {fileID: 3265138160707870509}
+  rangeDisplayer: {fileID: 3278037004704769596}
   shootingPoint: {fileID: 8563219277166159699}
 --- !u!58 &7736487038429641561
 CircleCollider2D:

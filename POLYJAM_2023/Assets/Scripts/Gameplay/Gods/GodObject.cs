@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class GodObject : MonoBehaviour
 {
-
     [SerializeField] private Image imageFill;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private GameObject rangeDisplayer;
+    [SerializeField] private SpriteRenderer rangeDisplayer;
     [SerializeField] private Transform shootingPoint;
 
     public GodData GodData { get; private set; }
@@ -34,15 +33,17 @@ public class GodObject : MonoBehaviour
     public void OnMouseOverGod()
     {
         isMouseOver = true;
-        var scale = (2 * GodData.GetSkillByType(SkillType.Range).GetValue(GodData));
-        rangeDisplayer.transform.localScale = new Vector3(scale, scale, rangeDisplayer.transform.localScale.z);
-        rangeDisplayer.SetActive(true);
+
+        //var scale = (2 * GodData.GetSkillByType(SkillType.Range).GetValue(GodData));
+        // rangeTemp.transform.localScale = new Vector3(scale, scale, rangeDisplayer.transform.localScale.z);
+        rangeDisplayer.sprite = GodData.RangeSprites[GodData.SkillLevels[(int)SkillType.Range]];
+        rangeDisplayer.gameObject.SetActive(true);
     }
 
     public void MouseExitGod()
     {
         isMouseOver = false;
-        rangeDisplayer.SetActive(false);
+        rangeDisplayer.gameObject.SetActive(false);
     }
 
     void Update()

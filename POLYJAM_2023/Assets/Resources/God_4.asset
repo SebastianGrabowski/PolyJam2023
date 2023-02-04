@@ -20,6 +20,12 @@ MonoBehaviour:
   CooldownUIColor: {r: 0.22086148, g: 0.817493, b: 0.8867924, a: 1}
   Abillity: {fileID: 1569053232800555188, guid: 4836035bf730aa04bb58c04918ef2110, type: 3}
   AbillityType: 2
+  RangeSprites:
+  - {fileID: 21300000, guid: 6fae3220cbeaa984ea2eed8c16d9eb47, type: 3}
+  - {fileID: 21300000, guid: a3f44e8dd3d4c874e9c4940325cd5b21, type: 3}
+  - {fileID: 21300000, guid: 5a0577002e935014ea75fbc472a12ffb, type: 3}
+  - {fileID: 21300000, guid: 6aac011ec1b423442ac0bded49fd9811, type: 3}
+  - {fileID: 21300000, guid: 9059a2e315e0e6e49892ff1ac8f12cea, type: 3}
   Skills:
   - SkillType: 0
     Value:
@@ -36,11 +42,11 @@ MonoBehaviour:
     - 500
   - SkillType: 1
     Value:
-    - 2
     - 3
-    - 5
+    - 4
+    - 6
     - 8
-    - 10
+    - 9
     SkillCost:
     - 50
     - 100
