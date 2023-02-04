@@ -13,7 +13,7 @@ namespace Gameplay
 
         [SerializeField]private SpriteRenderer _Render;
 
-        public UnityAction OnChangeHP { get; set; }
+        public UnityAction<float> OnChangeHP { get; set; }
 
         public float BaseHP => _BaseHP;
 
@@ -23,9 +23,10 @@ namespace Gameplay
             get => _HP;
             set
             {
+                var diff = value - _HP;
                 value = Mathf.Clamp(value, 0, _BaseHP);
                 _HP = value;
-                OnChangeHP?.Invoke();
+                OnChangeHP?.Invoke(diff);
                 var normalized = _HP / _BaseHP;
                 _Render.color = Color.Lerp(Color.black, Color.white, normalized);
             }
