@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 4572291509304975545}
   - component: {fileID: 2855971801096697269}
   - component: {fileID: 6248414921723143604}
+  - component: {fileID: 4608394041025572003}
   m_Layer: 5
   m_Name: GameOverView
   m_TagString: Untagged
@@ -330,6 +331,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _View: {fileID: 8573199097774181919}
+--- !u!95 &4608394041025572003
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760718021039781228}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f84ed035881dad74ba68c65d36004678, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3951746524145405400
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +498,7 @@ GameObject:
   - component: {fileID: 7183828949775827959}
   - component: {fileID: 376987024469089389}
   - component: {fileID: 9014705727087828663}
+  - component: {fileID: 1227863847429224244}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -599,6 +621,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &1227863847429224244
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432112277899552783}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5405123101219890565
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +645,7 @@ GameObject:
   - component: {fileID: 5310749786839302773}
   - component: {fileID: 781826560504228028}
   - component: {fileID: 1954859552873835804}
+  - component: {fileID: 4070605298288733291}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -733,6 +768,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &4070605298288733291
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5405123101219890565}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7739951191128826099
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,13 +870,14 @@ GameObject:
   - component: {fileID: 8895574495791518784}
   - component: {fileID: 2344362073491262874}
   - component: {fileID: 7432581209655366155}
+  - component: {fileID: 4382167427089941319}
   m_Layer: 5
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8895574495791518784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -889,3 +937,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &4382167427089941319
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8573199097774181919}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

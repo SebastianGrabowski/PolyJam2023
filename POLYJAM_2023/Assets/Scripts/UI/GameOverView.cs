@@ -29,7 +29,8 @@ namespace UI
 
         private void ShowGameOver()
         {
-            _View.SetActive(true);
+            GetComponent<Animator>().SetTrigger("Show");
+            //_View.SetActive(true);
         }
 
         public void ReplayClickHandler()
