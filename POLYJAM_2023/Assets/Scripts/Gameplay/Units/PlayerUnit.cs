@@ -6,7 +6,7 @@ namespace Gameplay.Units
 
     public class PlayerUnit : Unit
     {
-    
+        [SerializeField] public GameObject BuffIcon;
         public Sprite BuyIcon;
         public int Cost;
         public int GodOwnerID;
@@ -62,6 +62,7 @@ namespace Gameplay.Units
 
         public void AddBuff(float value)
         {
+            BuffIcon.SetActive(true);
             attackBeforeBuff = Attack;
             Attack += value;
 
@@ -71,6 +72,7 @@ namespace Gameplay.Units
         private IEnumerator BackToNormal()
         {
             yield return new WaitForSeconds(5f);
+            BuffIcon.SetActive(false);
             Attack = attackBeforeBuff;
         }
 
