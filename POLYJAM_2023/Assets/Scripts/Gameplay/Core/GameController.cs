@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
             currentGodHovered = hit.collider.GetComponentInParent<GodObject>();
             if(currentGodHovered) currentGodHovered.OnMouseOverGod();
         }
-        else if(currentGodHovered != null)
+        else if(currentGodHovered != null && (hit.collider == null || (hit.collider != null && !hit.collider.CompareTag("Enemy"))))
         { 
             currentGodHovered.MouseExitGod();
             currentGodHovered = null;
@@ -100,7 +100,7 @@ public class GameController : MonoBehaviour
 
     private void SpawnGod(God god)
     {
-        var data = new GodData(god.Name, god.Description, god.Sprite, god.IconUI, god.AbillityType, god.Abillity, god.CooldownUIColor, god.Skills, god.RangeSprites);
+        var data = new GodData(god.Name, god.Description, god.Sprite, god.IdleGlowSprite, god.HoveredSprite, god.IconUI, god.AbillityType, god.Abillity, god.CooldownUIColor, god.Skills, god.RangeSprites);
         currentGods.Add(data);
 
         var obj = Instantiate(godObject, godParents[god.ID].position, Quaternion.identity);

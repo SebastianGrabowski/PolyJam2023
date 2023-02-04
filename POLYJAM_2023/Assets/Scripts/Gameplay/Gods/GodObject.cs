@@ -7,9 +7,13 @@ using UnityEngine.UI;
 public class GodObject : MonoBehaviour
 {
     [SerializeField] private Image imageFill;
+    [SerializeField] private Transform shootingPoint;
+
+    [Space(10)]
+    [SerializeField] private SpriteRenderer idleGlowRenderer;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer rangeDisplayer;
-    [SerializeField] private Transform shootingPoint;
+    
 
     public GodData GodData { get; private set; }
     
@@ -17,7 +21,6 @@ public class GodObject : MonoBehaviour
     private Unit targetUnit;
 
     private bool isMouseOver;
-
 
     private float rate;
     private float currentCooldown;
@@ -27,6 +30,7 @@ public class GodObject : MonoBehaviour
     {
         GodData = data;
         spriteRenderer.sprite = data.Sprite;
+        idleGlowRenderer.sprite = data.IdleGlowSprite;
         imageFill.color = data.CooldownUIColor;
     }
 
@@ -36,6 +40,8 @@ public class GodObject : MonoBehaviour
 
         //var scale = (2 * GodData.GetSkillByType(SkillType.Range).GetValue(GodData));
         // rangeTemp.transform.localScale = new Vector3(scale, scale, rangeDisplayer.transform.localScale.z);
+
+        spriteRenderer.sprite = GodData.HoveredSprite;
         rangeDisplayer.sprite = GodData.RangeSprites[GodData.SkillLevels[(int)SkillType.Range]];
         rangeDisplayer.gameObject.SetActive(true);
     }
@@ -43,6 +49,7 @@ public class GodObject : MonoBehaviour
     public void MouseExitGod()
     {
         isMouseOver = false;
+        spriteRenderer.sprite = GodData.Sprite;
         rangeDisplayer.gameObject.SetActive(false);
     }
 

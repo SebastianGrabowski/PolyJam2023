@@ -9,6 +9,8 @@ public class GodData
     public string Description;
 
     public Sprite Sprite;
+    public Sprite HoveredSprite;
+    public Sprite IdleGlowSprite;
     public Sprite IconUI;
     
     public Abillity Abillity;
@@ -19,11 +21,13 @@ public class GodData
     public Skill[] Skills;
     public Sprite[] RangeSprites;
 
-    public GodData(string name, string desc, Sprite sprite, Sprite iconUI, AbillityType abilityType, Abillity abillity, Color cooldownUIColor, Skill[] skills, Sprite[] rangeSprites)
+    public GodData(string name, string desc, Sprite sprite, Sprite idleGlowSprite, Sprite hoveredSprite, Sprite iconUI, AbillityType abilityType, Abillity abillity, Color cooldownUIColor, Skill[] skills, Sprite[] rangeSprites)
     {
         Name = name;
         Description = desc;
         Sprite = sprite;
+        IdleGlowSprite = idleGlowSprite;
+        HoveredSprite = hoveredSprite;
         IconUI = iconUI;
         Abillity = abillity;
         AbillityType = abilityType;
