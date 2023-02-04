@@ -40,6 +40,9 @@ namespace Gameplay.Units
                 return;
             }
 
+            UpdateGlow();
+
+
             var middleDist = Vector2.Distance(transform.position, Vector2.zero);
             
             var dir = Vector2.zero;

@@ -18,6 +18,7 @@ namespace Gameplay.Units
         [SerializeField]private AudioClip _AttackSound;
         [SerializeField]private AudioClip _DeathSound;
         [SerializeField]private AudioClip _SpawnSound;
+        [SerializeField]private SpriteRenderer _Glow;
 
         public static List<Unit> AllUnits = new List<Unit>();
 
@@ -81,11 +82,11 @@ namespace Gameplay.Units
             HP = BaseHP;
             AllUnits.Add(this);
             OnStart();
+            _GlowTime = Random.Range(0.0f, 1.0f);
         }
 
         protected virtual void OnStart()
         {
-
         }
 
         private float _AnimRotTime;
@@ -133,5 +134,14 @@ namespace Gameplay.Units
 
         public void PlayAttackSound() { AudioController.Instance.PlaySound(_AttackSound); }
         public void PlayDeathSound() { AudioController.Instance.PlaySound(_DeathSound); }
+
+        private static Color _InvisibleWhite = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+
+        private float _GlowTime;
+        protected void UpdateGlow()
+        {
+            _GlowTime += GameController.DT;
+            _Glow.color = Color.Lerp(_InvisibleWhite, Color.white, Mathf.Abs(Mathf.Sin(_GlowTime)));
+        }
     }
 }
