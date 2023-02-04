@@ -17,6 +17,7 @@ namespace Gameplay.Units
         [SerializeField]private Vector3 _AnimJumpPos;
         [SerializeField]private AudioClip _AttackSound;
         [SerializeField]private AudioClip _DeathSound;
+        [SerializeField]private AudioClip _SpawnSound;
 
         public static List<Unit> AllUnits = new List<Unit>();
 
@@ -68,6 +69,10 @@ namespace Gameplay.Units
 
         private void Start()
         {
+            if(_SpawnSound != null)
+            {
+                AudioController.Instance.PlaySound(_SpawnSound);
+            }
             HP = BaseHP;
             AllUnits.Add(this);
             OnStart();

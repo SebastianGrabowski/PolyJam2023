@@ -13,7 +13,7 @@ public class AudioController : MonoBehaviour
         {
             value = Mathf.Clamp(value, 0.0f, 1.0f);
             _Volume = value;
-            _MusicSource.volume = value;
+            _MusicSource.volume = value * 0.5f;
         }
     }
 
@@ -23,6 +23,7 @@ public class AudioController : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        Volume = 1.0f;
     }
 
     public void PlaySound(AudioClip clip)

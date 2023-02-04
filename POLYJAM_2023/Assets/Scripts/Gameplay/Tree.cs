@@ -14,6 +14,8 @@ namespace Gameplay
         [SerializeField]private float _BaseHP;
 
         [SerializeField]private SpriteRenderer _Render;
+        [SerializeField]private AudioClip _HitClip;
+        [SerializeField]private AudioClip _DeathSound;
 
         public UnityAction<float> OnChangeHP { get; set; }
 
@@ -47,7 +49,11 @@ namespace Gameplay
             if(HP <= 0.0f)
             {
                 GameController.Instance.HandleGameOver();
+                AudioController.Instance.PlaySound(_DeathSound);
                 //Destroy(gameObject);
+            } else
+            {
+                AudioController.Instance.PlaySound(_HitClip);
             }
             if(_DamageEffect != null)
             {
