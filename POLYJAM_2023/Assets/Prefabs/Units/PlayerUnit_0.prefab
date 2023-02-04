@@ -180,10 +180,10 @@ MonoBehaviour:
   _Glow: {fileID: 383707816014489577}
   DisplayName: Licho
   DisplayDesc: Licho licho licho licho
-  BaseHP: 120
-  HP: 120
+  BaseHP: 240
+  HP: 240
   Attack: 35
-  AttackSpeed: 1
+  AttackSpeed: 0.5
   AttackRange: 4
   MoveSpeed: 1
   BuyIcon: {fileID: 21300000, guid: 9f6a0fc8997a79c4a8e78bed499302cb, type: 3}

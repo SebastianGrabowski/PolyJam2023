@@ -13,17 +13,23 @@ namespace Gameplay.Units
 
         private float _AttackT;
 
-        
+        private bool _IsDead;
+
         protected override void DeadHandler()
         {
+            _IsDead = true;
             var scorePoints = FindObjectOfType<ScorePoints>();
             for(var i = 0; i < CurrencyForKill; i++)
             {
                 scorePoints.Spawn(1.0f + ((float)i * 0.2f), transform.position);
             }
-            if(_DeathParticles != null)
-                _DeathParticles.gameObject.SetActive(true);
-            Invoke(nameof(HideView), 0.5f);
+            //if(_DeathParticles != null)
+            //    _DeathParticles.gameObject.SetActive(true);
+            GetComponent<Collider2D>().enabled = false;
+            _Rigidbody.freezeRotation = false;
+            _Rigidbody.AddTorque(360.0f);
+            _Rigidbody.gravityScale = 2.0f;
+            //Invoke(nameof(HideView), 1.5f);
             Destroy(gameObject, 2.5f);
         }
 
@@ -34,6 +40,11 @@ namespace Gameplay.Units
 
         void Update()
         {
+            if (_IsDead)
+            {
+                _Rigidbody.velocity = Vector2.down * 100.0f;
+                transform.localScale += (Time.deltaTime * 0.5f * Vector3.one);
+            }
             if (GameController.Instance.IsGameOver || GameController.Instance.Pause)
             {
                 _Rigidbody.velocity = Vector2.zero;
