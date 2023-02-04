@@ -17,6 +17,7 @@ namespace Gameplay
         [SerializeField]private AudioClip _HitClip;
         [SerializeField]private AudioClip _DeathSound;
 
+        [SerializeField]private Cam _Cam;
         public UnityAction<float> OnChangeHP { get; set; }
 
         private Coroutine _DamageEffect;
@@ -31,6 +32,22 @@ namespace Gameplay
             {
                 var diff = value - _HP;
                 value = Mathf.Clamp(value, 0, _BaseHP);
+             
+                var shakeForce = 0.0f;
+                if(_HP > (_BaseHP * 0.75f) && value <= (_BaseHP * 0.75f))
+                    shakeForce = 0.25f;
+                else if(_HP > (_BaseHP * 0.5f) && value <= (_BaseHP * 0.5f))
+                    shakeForce = 0.5f;
+                else if(_HP > (_BaseHP * 0.25f) && value <= (_BaseHP * 0.25f))
+                    shakeForce = 0.75f;
+                else if(_HP > 0.0f && value <= 0.0f)
+                    shakeForce = 1.00f;
+                
+                if(shakeForce > 0.0f)
+                {
+                    _Cam.Shake(shakeForce);
+                }
+
                 _HP = value;
                 OnChangeHP?.Invoke(diff);
                 var normalized = _HP / _BaseHP;
