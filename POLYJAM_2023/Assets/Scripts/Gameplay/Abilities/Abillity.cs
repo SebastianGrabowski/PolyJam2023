@@ -47,10 +47,17 @@ public class Abillity : MonoBehaviour
 
     public void ThunderAbilitySetDamage()
     {
+        var valid = new List<EnemyUnit>();
+
         foreach (var obj in currentCollisions)
         {
             var enemy = obj.GetComponent<EnemyUnit>();
-            if(enemy != null) enemy.ApplyDamage(GodAbillityValue);
+            if(enemy != null) valid.Add(enemy);
+        }
+
+        foreach(var v in valid)
+        {
+            v.ApplyDamage(GodAbillityValue);
         }
     }
     

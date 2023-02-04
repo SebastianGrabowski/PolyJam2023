@@ -42,8 +42,13 @@ namespace Gameplay.Units
         {
             if (_IsDead)
             {
-                _Rigidbody.velocity = Vector2.down * 100.0f;
-                transform.localScale += (Time.deltaTime * 0.5f * Vector3.one);
+                _Rigidbody.velocity = Vector2.down * 10.0f;
+                var renderer = _View.GetComponent<SpriteRenderer>();
+                renderer.color = Color.Lerp(renderer.color, Color.clear, Time.deltaTime * 0.5f);
+
+                _View.localScale += (Time.deltaTime * 0.5f * Vector3.one);
+                _View.localRotation = Quaternion.Lerp(_View.localRotation, Quaternion.identity, Time.deltaTime * 5.0f);
+                return;
             }
             if (GameController.Instance.IsGameOver || GameController.Instance.Pause)
             {
