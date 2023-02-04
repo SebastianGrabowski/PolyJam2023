@@ -68,7 +68,7 @@ namespace Gameplay.Units
                 DeadHandler();
             }
 
-            OnDamage?.Invoke(this is PlayerUnit, value, transform.position + (Vector3.up * 0.7f));
+            OnDamage?.Invoke(this is PlayerUnit, value, transform.position + (Vector3.up * 1.7f) - Vector3.forward);
         }
 
         protected virtual void DeadHandler() { }
