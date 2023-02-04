@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ca01ba0bfc1e6418769a4b07ab2701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Pointer: {fileID: 6755276672244884903}
+  _Pointer: {fileID: 6755276672244884900}
   _Cam: {fileID: 0}
+  _ValidColor: {r: 0.3529412, g: 1, b: 0, a: 0.29803923}
+  _InvalidColor: {r: 1, g: 0.123194635, b: 0, a: 0.29803923}
 --- !u!1 &6755276672244884903
 GameObject:
   m_ObjectHideFlags: 0
