@@ -51,15 +51,20 @@ namespace Gameplay.Units
             }
         }
 
+        private bool _Dead;
+
         public void ApplyDamage(float value)
         {
+            if(_Dead)
+                return;
+
             HP = Mathf.Clamp(HP - value, 0.0f, BaseHP);
             if(HP <= 0.0f)
             {
+                _Dead = true;
                 PlayDeathSound();
                 AllUnits.Remove(this);
                 DeadHandler();
-                Destroy(gameObject);
             }
 
             OnDamage?.Invoke(this is PlayerUnit, value, transform.position + (Vector3.up * 0.7f));

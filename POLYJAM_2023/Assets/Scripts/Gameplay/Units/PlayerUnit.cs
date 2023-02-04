@@ -12,6 +12,13 @@ namespace Gameplay.Units
         public int GodOwnerID;
         
         private float _AttackT;
+        
+        protected override void DeadHandler()
+        {
+            //CurrencyController.Value += CurrencyForKill;
+           // _DeathParticles.gameObject.SetActive(true);
+            Destroy(gameObject, 1.0f);
+        }
 
         void Update()
         {

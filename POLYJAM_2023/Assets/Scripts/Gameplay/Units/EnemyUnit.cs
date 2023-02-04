@@ -7,13 +7,29 @@ namespace Gameplay.Units
     public class EnemyUnit : Unit
     {
 
+        [SerializeField]private GameObject _DeathParticles;
+
         public int CurrencyForKill;
 
         private float _AttackT;
 
+        
         protected override void DeadHandler()
         {
-            CurrencyController.Value += CurrencyForKill;
+            var scorePoints = FindObjectOfType<ScorePoints>();
+            for(var i = 0; i < CurrencyForKill; i++)
+            {
+                scorePoints.Spawn(1.0f + ((float)i * 0.2f), transform.position);
+            }
+            if(_DeathParticles != null)
+                _DeathParticles.gameObject.SetActive(true);
+            Invoke(nameof(HideView), 0.5f);
+            Destroy(gameObject, 2.5f);
+        }
+
+        private void HideView()
+        {
+            _View.gameObject.SetActive(false);
         }
 
         void Update()
