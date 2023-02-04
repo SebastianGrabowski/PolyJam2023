@@ -178,9 +178,9 @@ MonoBehaviour:
   _SpawnSound: {fileID: 8300000, guid: 76f20918380ec3e41b53d91a763ba93f, type: 3}
   DisplayName: Strzyga
   DisplayDesc: "To jest strzyga, strzyga jest z\u0142a i atakuje. Mo\u017Ce zabija\u0107."
-  BaseHP: 100
-  HP: 100
-  Attack: 25
+  BaseHP: 120
+  HP: 120
+  Attack: 35
   AttackSpeed: 1
   AttackRange: 2
   MoveSpeed: 1

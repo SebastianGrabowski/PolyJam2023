@@ -79,6 +79,15 @@ namespace Gameplay
             _DamageEffect = StartCoroutine(DamageEffect(value));
         }
 
+        private void Update()
+        {
+            var gc = GameController.Instance;
+            if(gc != null && !gc.Pause && !gc.IsGameOver)
+            {
+                HP += GameController.DT * 0.5f;
+            }
+        }
+
         private IEnumerator DamageEffect(float value)
         {
             var startF = _Volume.weight;
