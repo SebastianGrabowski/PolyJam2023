@@ -136,7 +136,10 @@ MonoBehaviour:
   _AnimAngleMinMax: 5
   _AnimAngleSpeed: 3
   _AnimJumpPos: {x: 0, y: 0.05, z: 0}
+  _AttackSound: {fileID: 8300000, guid: 146fba6e019e80544942274bb0801155, type: 3}
+  _DeathSound: {fileID: 8300000, guid: 4b41ea0053303be48ad493a7539538fb, type: 3}
   DisplayName: 
+  DisplayDesc: 
   BaseHP: 200
   HP: 200
   Attack: 30

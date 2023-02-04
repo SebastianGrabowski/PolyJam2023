@@ -14,6 +14,7 @@ namespace UI
         [SerializeField]private TextMeshProUGUI _TreeLabel;
         [SerializeField]private TextMeshProUGUI _TimeLabel;
         [SerializeField]private TextMeshProUGUI _HealthLabel;
+        [SerializeField]private AudioClip _CurrencySound;
         [SerializeField]private Image _HealthFill;
 
         private int _LastCurrency;
@@ -69,6 +70,8 @@ namespace UI
             var maxt = 0.5f;
             var startV = _LastCurrency;
             var finalV = Gameplay.CurrencyController.Value;
+            var playSound = startV < finalV;
+
             var startScale = _CurrencyLabel.transform.localScale;
             while(t < maxt)
             {
@@ -84,6 +87,10 @@ namespace UI
 
                 t += Time.deltaTime;
                 var v = Mathf.SmoothStep(startV, finalV, t/maxt);
+                if((int)v != _LastCurrency && playSound)
+                {
+                    AudioController.Instance.PlaySound(_CurrencySound);
+                }
                 _LastCurrency = (int)v;
                 _CurrencyLabel.text = ((int)v).ToString();
                 yield return null;
