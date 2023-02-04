@@ -417,8 +417,8 @@ MonoBehaviour:
   - {fileID: 5933471284991857318, guid: e8b623aeea49fbc4aadb36c9d9b11f7e, type: 3}
   _FromTime: 130
   _ToTime: 9999
-  _IntervalMin: 10
-  _IntervalMax: 12
+  _IntervalMin: 6
+  _IntervalMax: 9
   _MinCount: 2
   _MaxCount: 2
 --- !u!1 &1578757005911582880
@@ -566,8 +566,8 @@ MonoBehaviour:
   - {fileID: 5933471284991857318, guid: e8b623aeea49fbc4aadb36c9d9b11f7e, type: 3}
   _FromTime: 130
   _ToTime: 9999
-  _IntervalMin: 10
-  _IntervalMax: 12
+  _IntervalMin: 6
+  _IntervalMax: 9
   _MinCount: 2
   _MaxCount: 2
 --- !u!1 &5825758173274332620
@@ -986,10 +986,10 @@ MonoBehaviour:
   - {fileID: 6881603276852990987, guid: d7d0ca060505c0845891fe214e7211c7, type: 3}
   _FromTime: 0
   _ToTime: 120
-  _IntervalMin: 10
-  _IntervalMax: 12
-  _MinCount: 2
-  _MaxCount: 2
+  _IntervalMin: 4
+  _IntervalMax: 5
+  _MinCount: 3
+  _MaxCount: 5
 --- !u!1 &7507801204488065472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,8 +1196,8 @@ MonoBehaviour:
   - {fileID: 6951544791124886146, guid: 414e5ac34c4736a47a2a0dbed505eee0, type: 3}
   _FromTime: 0
   _ToTime: 1000
-  _IntervalMin: 20
-  _IntervalMax: 40
+  _IntervalMin: 15
+  _IntervalMax: 30
   _MinCount: 1
   _MaxCount: 1
 --- !u!1 &9070646274571973075
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   - {fileID: 6881603276852990987, guid: d7d0ca060505c0845891fe214e7211c7, type: 3}
   _FromTime: 0
   _ToTime: 120
-  _IntervalMin: 10
-  _IntervalMax: 12
-  _MinCount: 2
-  _MaxCount: 2
+  _IntervalMin: 4
+  _IntervalMax: 5
+  _MinCount: 3
+  _MaxCount: 5
