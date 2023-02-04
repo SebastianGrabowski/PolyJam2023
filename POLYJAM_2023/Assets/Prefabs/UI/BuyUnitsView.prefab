@@ -249,6 +249,7 @@ MonoBehaviour:
   _Units:
   - {fileID: 1601936318342930782, guid: e73532604fcc6bd4f935a6d2dd9376ce, type: 3}
   - {fileID: 1601936318342930782, guid: a183bf7729577dc418a3fba86ae9fd5e, type: 3}
+  - {fileID: 1601936318342930782, guid: 41fcfc93e629371428cf4246792ae550, type: 3}
   _PlayerSpawner: {fileID: 0}
 --- !u!114 &2314964331462787076
 MonoBehaviour:

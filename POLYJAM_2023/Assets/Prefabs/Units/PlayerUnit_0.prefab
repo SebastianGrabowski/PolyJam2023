@@ -178,13 +178,13 @@ MonoBehaviour:
   _DeathSound: {fileID: 8300000, guid: 397759c374473f8468348127e3209f30, type: 3}
   _SpawnSound: {fileID: 8300000, guid: 76f20918380ec3e41b53d91a763ba93f, type: 3}
   _Glow: {fileID: 383707816014489577}
-  DisplayName: Strzyga
-  DisplayDesc: "To jest strzyga, strzyga jest z\u0142a i atakuje. Mo\u017Ce zabija\u0107."
+  DisplayName: Licho
+  DisplayDesc: Licho licho licho licho
   BaseHP: 120
   HP: 120
   Attack: 35
   AttackSpeed: 1
-  AttackRange: 2
+  AttackRange: 4
   MoveSpeed: 1
   BuyIcon: {fileID: 21300000, guid: 9f6a0fc8997a79c4a8e78bed499302cb, type: 3}
   Cost: 2

@@ -262,14 +262,13 @@ MonoBehaviour:
   _DeathSound: {fileID: 8300000, guid: be2e8cc8bbb658647b75c7ee8dc5c789, type: 3}
   _SpawnSound: {fileID: 8300000, guid: 76f20918380ec3e41b53d91a763ba93f, type: 3}
   _Glow: {fileID: 1214888794212922361}
-  DisplayName: Topielec
-  DisplayDesc: "Ma sk\u0142onno\u015B\u0107 do k\u0105pieli, atakuje wszystkich dobrych
-    jednostk\xF3w. asdas dsa das sdasd"
+  DisplayName: Baba jaga
+  DisplayDesc: "z jasia i ma\u0142gosi"
   BaseHP: 130
   HP: 130
   Attack: 55
   AttackSpeed: 1
-  AttackRange: 3
+  AttackRange: 6
   MoveSpeed: 0.7
   BuyIcon: {fileID: 21300000, guid: 2815b0c1926053e49b88637e01aee244, type: 3}
   Cost: 3
