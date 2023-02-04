@@ -16,7 +16,8 @@ namespace Gameplay
         [SerializeField]private SpriteRenderer _Render;
         [SerializeField]private AudioClip _HitClip;
         [SerializeField]private AudioClip _DeathSound;
-
+        [SerializeField]private SpriteRenderer _R1;
+        [SerializeField]private SpriteRenderer _R2;
         [SerializeField]private Cam _Cam;
         public UnityAction<float> OnChangeHP { get; set; }
 
@@ -51,13 +52,37 @@ namespace Gameplay
                 _HP = value;
                 OnChangeHP?.Invoke(diff);
                 var normalized = _HP / _BaseHP;
-                _Render.color = Color.Lerp(Color.black, Color.white, normalized);
+                _Render.color = Color.Lerp(new Color(0.6f, 0.6f, 0.6f, 1.0f), Color.white, normalized);
             }
         }
 
         void Start()
         {
             HP = _BaseHP;
+            StartCoroutine(UpdateC(_R1));
+            StartCoroutine(UpdateC(_R2));
+        }
+
+        private IEnumerator UpdateC(SpriteRenderer r)
+        {
+
+            while (true)
+            {
+                var value = Random.Range(0.0f, 1.0f);
+                var t = 0.0f;
+                var maxt = Random.Range(0.1f, 2.0f);
+                var finalColor = new Color(1.0f, 1.0f, 1.0f, value);
+                var startColor = r.color;
+                while(t < maxt)
+                {
+                    t += Time.deltaTime;
+                    var lerp = t/maxt;
+                    var color = Color.Lerp(startColor, finalColor, lerp);
+                    r.color = color;
+                    yield return null;
+                }
+                yield return null;
+            }
         }
 
         public void ApplyDamage(float value)
