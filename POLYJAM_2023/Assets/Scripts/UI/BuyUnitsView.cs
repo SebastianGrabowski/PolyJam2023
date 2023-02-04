@@ -22,10 +22,25 @@ namespace UI
                 var newItem = Instantiate(_Template, _Template.transform.parent);
                 newItem.gameObject.SetActive(true);
                 yield return null;
-                var text = _Units[i].DisplayName + " [$" + _Units[i].Cost.ToString() + "]";
-                var newText = newItem.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-                newText.text = text;
+
+                var headerLabel = newItem.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+                headerLabel.text = _Units[i].DisplayName;
+
+                var descLabel = newItem.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+                descLabel.text = _Units[i].DisplayDesc;
+
+                var costLabel = newItem.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+                costLabel.text = _Units[i].Cost.ToString();
+                
                 yield return null;
+                LayoutRebuilder.ForceRebuildLayoutImmediate(headerLabel.rectTransform);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(descLabel.rectTransform);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(costLabel.rectTransform);
+                yield return null;
+                LayoutRebuilder.ForceRebuildLayoutImmediate(newItem.transform.GetChild(0).GetComponent<RectTransform>());
+
+                yield return null;
+
                 var a = newItem.transform.GetChild(0);
                 a.gameObject.SetActive(false);
                 newItem.image.sprite = _Units[i].BuyIcon;

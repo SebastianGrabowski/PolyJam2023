@@ -174,6 +174,7 @@ MonoBehaviour:
   _AnimAngleSpeed: 2
   _AnimJumpPos: {x: 0, y: 0.1, z: 0}
   DisplayName: Strzyga
+  DisplayDesc: "To jest strzyga, strzyga jest z\u0142a i atakuje. Mo\u017Ce zabija\u0107."
   BaseHP: 100
   HP: 100
   Attack: 25
