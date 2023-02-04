@@ -5,7 +5,10 @@ using UnityEngine;
 public enum AbillityType
 {
 	Thunder,
-	FireBall
+	FireBall,
+	Resurrection,
+	Sun
+
 }
 
 [CreateAssetMenu(fileName = "Game", menuName = "Game/Gods")]
