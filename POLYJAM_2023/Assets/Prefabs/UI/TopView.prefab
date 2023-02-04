@@ -1026,7 +1026,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3760718021039781228}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1097,6 +1097,7 @@ MonoBehaviour:
   _TreeLabel: {fileID: 3347491668731096848}
   _TimeLabel: {fileID: 4518911014883968476}
   _HealthLabel: {fileID: 2548567047915828599}
+  _CurrencySound: {fileID: 8300000, guid: 6ef2b593dc355cc41a8b0205eadc16d0, type: 3}
   _HealthFill: {fileID: 5105615478881874518}
 --- !u!1 &3781289100203789188
 GameObject:
