@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 public class UIController : MonoBehaviour
 {
-	public GodPanel GodPanel;
-	
 	[HideInInspector] public UnityEvent<GodData> OnGodSelected;
 
+	public GodPanel GodPanel;
+	
 	public void Awake()
 	{
 		OnGodSelected.AddListener(UpdateSelectedGod);
-	}	
+	}
 
 	private void UpdateSelectedGod(GodData godData)
 	{

@@ -48,7 +48,7 @@ public class GodObject : MonoBehaviour
             if(GodData.AbillityType == AbillityType.Thunder) ThunderAbillity();
             else if(GodData.AbillityType == AbillityType.FireBall && targetUnit != null) FireBallAbillity();
             
-            TimeElapsed = Time.time + GodData.Rate;
+            TimeElapsed = Time.time + GodData.Rate[GodData.SkillLevels[(int)SkillType.Rate]];
         }
 
         if(GodData.AbillityType == AbillityType.FireBall && currentAbillity != null && targetUnit != null) currentAbillity.UpdateAbillity(targetUnit.transform);
@@ -58,7 +58,7 @@ public class GodObject : MonoBehaviour
     {
         if(GodData.AbillityType == AbillityType.Thunder)
         {
-            var spawnPos = Random.insideUnitCircle * GodData.Range;
+            var spawnPos = Random.insideUnitCircle * GodData.Range[GodData.SkillLevels[(int)SkillType.Range]];
             var abillityObj = Instantiate(GodData.Abillity.gameObject, spawnPos, Quaternion.identity);
         }
     }
@@ -68,7 +68,7 @@ public class GodObject : MonoBehaviour
         //var spawnPos = Random.insideUnitCircle * GodData.Range;
         var abillityObj = Instantiate(GodData.Abillity.gameObject, transform.position, Quaternion.identity);
         currentAbillity = abillityObj.GetComponent<Abillity>();
-        currentAbillity.Damage = GodData.Damage;
+        currentAbillity.Damage = GodData.Damage[GodData.SkillLevels[(int)SkillType.Damage]];
     }
 
     private Unit GetNearestUnit()
@@ -79,7 +79,7 @@ public class GodObject : MonoBehaviour
             if(Unit.AllUnits[i] is EnemyUnit)
             {
                 var dd = Vector2.Distance(Unit.AllUnits[i].transform.position, pos);
-                if(dd <= GodData.Range)
+                if(dd <= GodData.Range[GodData.SkillLevels[(int)SkillType.Range]])
                 {
                     return Unit.AllUnits[i];
                 }

@@ -12,15 +12,18 @@ public enum AbillityType
 public class God : ScriptableObject
 {
     public int ID;
-
+   
 	[Space(10)]
     public string Name;
     public string Description;
 	
 	[Space(10)]
-	public float Damage;
-	public float Range;
-	public float Rate;
+	public float[] Damage;
+	public float[] Range;
+	public float[] Rate;
+
+	[Space(10)]
+	public int[] SkillLevels;
 
 	[Space(10)]
 	public Sprite Sprite;

@@ -29,7 +29,8 @@ public class GameController : MonoBehaviour
 
     private void SpawnGod(God god)
     {
-        var data = new GodData(god.Name, god.Description, god.Damage, god.Range, god.Rate, god.Sprite, god.IconUI, god.AbillityType, god.Abillity);
+        var newSkillLevels = (int[])god.SkillLevels.Clone();
+        var data = new GodData(god.Name, god.Description, god.Damage, god.Range, god.Rate, newSkillLevels, god.Sprite, god.IconUI, god.AbillityType, god.Abillity);
         currentGods.Add(data);
 
         var obj = Instantiate(godObject, godParents[god.ID].position, Quaternion.identity);
