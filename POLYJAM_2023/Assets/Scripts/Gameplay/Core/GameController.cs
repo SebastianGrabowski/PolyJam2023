@@ -61,11 +61,9 @@ public class GameController : MonoBehaviour
             Gameplay.TimeController.Value++;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(currentGods.Count <= availableGods.Length - 1) SpawnGod(availableGods[currentGods.Count]);
-        }
-        
+        if(Input.GetKeyDown(KeyCode.Space) && currentGods.Count <= availableGods.Length - 1) 
+            SpawnGod(availableGods[currentGods.Count]);
+
         if(Input.GetKeyDown(KeyCode.Escape) && !UI.PauseMenu.IsOpen)
         {
             OnPauseMenu?.Invoke();
