@@ -9,6 +9,7 @@ public class Abillity : MonoBehaviour
     [SerializeField] private float timeToDestroy;
     
     [Space(10)]
+    [SerializeField] private Transform particleTransform;
     [SerializeField] private AbillityType abilityType;
     [HideInInspector] public float Damage;
     
@@ -36,6 +37,7 @@ public class Abillity : MonoBehaviour
         {
             var dir = ((Vector2)targetTransform.position - (Vector2)transform.position).normalized;
             rb.velocity = dir * velocity;
+            particleTransform.transform.rotation = transform.rotation;
         }
     }
 
