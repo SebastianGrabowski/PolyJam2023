@@ -16,6 +16,7 @@ MonoBehaviour:
   Name: Swarozyc
   Description: god desc temp
   Sprite: {fileID: 21300000, guid: 1a12f53a2cad63841ab6ecd040799b65, type: 3}
+  IdleGlowSprite: {fileID: 21300000, guid: 043d9f22f1d6c2e449aba8fe7e9b038c, type: 3}
   HoveredSprite: {fileID: 21300000, guid: 6aca7b57c9f6a5248842a78659206fe4, type: 3}
   IconUI: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   CooldownUIColor: {r: 0.91764706, g: 0.7607843, b: 0.28235295, a: 1}

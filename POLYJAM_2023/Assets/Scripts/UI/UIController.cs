@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,13 +23,18 @@ public class UIController : MonoBehaviour
 
 	private void UpdateSelectedGod(GodData godData)
 	{
+		
+		canDisablePanel = false;
+		StopCoroutine(SetDisability());
 		Debug.Log("UpdateSelectedGod: "+godData.Name);
 		GodPanel.DisplayGodData(godData);
-		Invoke(nameof(SetDisability), 0.25f);
+
+		StartCoroutine(SetDisability());
 	}
 
-	private void SetDisability()
+	public IEnumerator SetDisability()
 	{
+		yield return new WaitForSeconds(0.25f);
 		canDisablePanel = true;
 	}
 
@@ -37,8 +43,8 @@ public class UIController : MonoBehaviour
 		if(GodPanel.view.activeInHierarchy && canDisablePanel)
 		{
 			Debug.Log("Wylaczam panel");
-			 GodPanel.Disable();
-			 canDisablePanel = false;
+			GodPanel.Disable();
+			canDisablePanel = false;
 		}
 	}
 
