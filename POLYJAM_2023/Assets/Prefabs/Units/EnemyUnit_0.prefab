@@ -228,9 +228,9 @@ MonoBehaviour:
   _Glow: {fileID: 3363533719093792571}
   DisplayName: 
   DisplayDesc: 
-  BaseHP: 50
-  HP: 50
-  Attack: 7
+  BaseHP: 40
+  HP: 40
+  Attack: 6
   AttackSpeed: 0.5
   AttackRange: 4
   MoveSpeed: 3

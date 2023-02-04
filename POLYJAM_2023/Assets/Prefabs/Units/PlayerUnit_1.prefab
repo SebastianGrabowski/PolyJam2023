@@ -273,7 +273,7 @@ MonoBehaviour:
   MoveSpeed: 1.4
   BuffIcon: {fileID: 7372741278868242822}
   BuyIcon: {fileID: 21300000, guid: 2815b0c1926053e49b88637e01aee244, type: 3}
-  Cost: 15
+  Cost: 30
   GodOwnerID: 0
 --- !u!1 &7372741278868242822
 GameObject:
