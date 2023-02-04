@@ -53,9 +53,9 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        DT = Time.deltaTime * ScaleTime;
+        DT =  Time.deltaTime * ScaleTime;
         _TimeUpdate += DT;
-        if(_TimeUpdate >= 1.0f)
+        if(_TimeUpdate >= 1.0f && !Pause && !IsGameOver)
         {
             _TimeUpdate -= 1.0f;
             Gameplay.TimeController.Value++;
