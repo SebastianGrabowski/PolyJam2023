@@ -42,7 +42,7 @@ public class GodData
 
     public void SkillLevelUp(SkillType skill)
     {
-        if(SkillLevels[(int)skill] < 3) SkillLevels[(int)skill]++;
+        if(SkillLevels[(int)skill] < 5) SkillLevels[(int)skill]++;
     }
 
     public float GetSkillValueBySkillType(SkillType skill)

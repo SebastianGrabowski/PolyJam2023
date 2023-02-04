@@ -33,7 +33,7 @@ MonoBehaviour:
   - 2
   - 1
   - 0.5
-  SkillLevels: 000000000000000000000000
+  SkillLevels: 010000000100000001000000
   Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   IconUI: {fileID: 21300000, guid: 01925796adc075a4ba43cac7c0475907, type: 3}
   Abillity: {fileID: 7246403073326237947, guid: a45945ec1acba694da54a34bed40f584, type: 3}
