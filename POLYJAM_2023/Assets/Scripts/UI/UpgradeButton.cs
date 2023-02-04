@@ -8,21 +8,21 @@ using UnityEngine.EventSystems;
 public class UpgradeButton : MonoBehaviour, IPointerEnterHandler
 {
     private GodPanel godPanel;
-    private SkillType skillType;
+    public SkillType SkillType { get; private set; }
 
     public void SetButtonData(GodPanel godPanel, SkillType skillType)
     {
         this.godPanel = godPanel;
-        this.skillType = skillType;
+        this.SkillType = skillType;
     }
 
     public void OnButtonClick()
     {
-        godPanel.OnSkillUpgradeHover(skillType);
+        godPanel.OnSkillUpgradeHover(SkillType);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        godPanel.OnSkillUpgradeHover(skillType);
+        godPanel.OnSkillUpgradeHover(SkillType);
     }
 }

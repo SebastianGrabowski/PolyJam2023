@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEngine.EventSystems;
+using Gameplay;
 
 public class GodPanel : MonoBehaviour
 {
@@ -27,6 +28,17 @@ public class GodPanel : MonoBehaviour
 
     private GodData godData;
     private List<GameObject> currentItems = new List<GameObject>();
+    private List<UpgradeButton> upgradeButtons = new List<UpgradeButton>();
+
+    void OnEnable()
+    {
+        CurrencyController.OnChanged += OnCurrencySpent;
+    }
+
+    void OnDisable()
+    {
+        CurrencyController.OnChanged -= OnCurrencySpent;
+    }
 
     public void DisplayGodData(GodData godData)
     {
@@ -43,6 +55,7 @@ public class GodPanel : MonoBehaviour
             Destroy(currentItems[i]);
         }
 
+        upgradeButtons.Clear();
         currentItems.Clear();
 
         foreach(SkillType skillType in Enum.GetValues(typeof(SkillType)))
@@ -51,7 +64,9 @@ public class GodPanel : MonoBehaviour
             skillItem.SetSkillData(godData, skillType);
             skillItem.gameObject.SetActive(true);
 
-            skillItem.GetComponentInChildren<UpgradeButton>().SetButtonData(this, skillType);
+            var upgradeButton = skillItem.GetComponentInChildren<UpgradeButton>();
+            upgradeButton.SetButtonData(this, skillType);
+            upgradeButtons.Add(upgradeButton);
 
             currentItems.Add(skillItem.gameObject);
         }
@@ -63,6 +78,16 @@ public class GodPanel : MonoBehaviour
     {
         var cost = godData.GetSkillByType(skillType).GetCost(godData);
         skillCost.text = "Skill cost: "+cost+" currency";
+    }
+
+    private void OnCurrencySpent()
+    {
+        foreach(var button in upgradeButtons)
+        {
+            var skillCost = godData.GetSkillByType(button.SkillType).GetCost(godData);
+            if(CurrencyController.Value < skillCost) button.GetComponent<Button>().interactable = false;
+            else button.GetComponent<Button>().interactable = true;
+        }
     }
 
     public void Disable()
