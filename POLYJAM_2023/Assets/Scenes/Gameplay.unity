@@ -1568,6 +1568,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cam
       objectReference: {fileID: 0}
+    - target: {fileID: 3796560726017965910, guid: d4453b7845b925e4b8813ca644b989d9, type: 3}
+      propertyPath: orthographic size
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 7846292578510616988, guid: d4453b7845b925e4b8813ca644b989d9, type: 3}
       propertyPath: m_RootOrder
       value: 0
