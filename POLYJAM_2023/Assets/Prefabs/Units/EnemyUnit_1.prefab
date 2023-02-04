@@ -232,7 +232,7 @@ MonoBehaviour:
   HP: 130
   Attack: 25
   AttackSpeed: 0.5
-  AttackRange: 3
+  AttackRange: 6
   MoveSpeed: 0.7
   _DeathParticles: {fileID: 2577416468800591430}
   CurrencyForKill: 5
