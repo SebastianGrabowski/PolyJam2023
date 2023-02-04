@@ -49,9 +49,18 @@ public class GameController : MonoBehaviour
     public static float DT;
     public static float ScaleTime;
 
+    private float _TimeUpdate;
+
     void Update()
     {
         DT = Time.deltaTime * ScaleTime;
+        _TimeUpdate += DT;
+        if(_TimeUpdate >= 1.0f)
+        {
+            _TimeUpdate -= 1.0f;
+            Gameplay.TimeController.Value++;
+        }
+
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if(currentGods.Count <= availableGods.Length - 1) SpawnGod(availableGods[currentGods.Count]);
