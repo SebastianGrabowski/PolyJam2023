@@ -24,6 +24,6 @@ public class DamageLabelsController : MonoBehaviour
         newItem.text = ((int)value).ToString();
         newItem.color = isPlayer ? Color.red : Color.yellow;
         newItem.transform.position = pos;
-        Destroy(newItem, 1.5f);
+        Destroy(newItem.gameObject, 1.5f);
     }
 }

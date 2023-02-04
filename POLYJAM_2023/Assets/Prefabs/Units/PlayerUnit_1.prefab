@@ -257,7 +257,7 @@ MonoBehaviour:
   _Rigidbody: {fileID: 7409708022038805810}
   _View: {fileID: 6881603275728757329}
   _AnimAngleMinMax: 15
-  _AnimAngleSpeed: 2
+  _AnimAngleSpeed: 4
   _AnimJumpPos: {x: 0, y: 0.1, z: 0}
   _AttackSound: {fileID: 8300000, guid: 146fba6e019e80544942274bb0801155, type: 3}
   _DeathSound: {fileID: 8300000, guid: be2e8cc8bbb658647b75c7ee8dc5c789, type: 3}
@@ -268,12 +268,12 @@ MonoBehaviour:
   BaseHP: 340
   HP: 340
   Attack: 60
-  AttackSpeed: 0.5
+  AttackSpeed: 0.25
   AttackRange: 6
-  MoveSpeed: 0.7
+  MoveSpeed: 1.4
   BuffIcon: {fileID: 7372741278868242822}
   BuyIcon: {fileID: 21300000, guid: 2815b0c1926053e49b88637e01aee244, type: 3}
-  Cost: 3
+  Cost: 15
   GodOwnerID: 0
 --- !u!1 &7372741278868242822
 GameObject:

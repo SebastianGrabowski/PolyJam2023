@@ -51,7 +51,7 @@ MonoBehaviour:
   _Rigidbody: {fileID: 1530173175176653708}
   _View: {fileID: 8383124651052939310}
   _AnimAngleMinMax: 5
-  _AnimAngleSpeed: 3
+  _AnimAngleSpeed: 5
   _AnimJumpPos: {x: 0, y: 0.05, z: 0}
   _AttackSound: {fileID: 8300000, guid: 146fba6e019e80544942274bb0801155, type: 3}
   _DeathSound: {fileID: 8300000, guid: efd0d06fdee3dc249b67c12ef80b4df3, type: 3}
@@ -62,9 +62,9 @@ MonoBehaviour:
   BaseHP: 50
   HP: 50
   Attack: 20
-  AttackSpeed: 3
+  AttackSpeed: 1.5
   AttackRange: 10
-  MoveSpeed: 0.5
+  MoveSpeed: 1
   _DeathParticles: {fileID: 885940913652584997}
   CurrencyForKill: 6
 --- !u!58 &3452006173752024388
