@@ -14,12 +14,34 @@ namespace UI
         [SerializeField]private TextMeshProUGUI _TreeLabel;
         [SerializeField]private TextMeshProUGUI _TimeLabel;
         [SerializeField]private TextMeshProUGUI _HealthLabel;
+        [SerializeField]private Image _HealthFill;
+
+        private int _LastCurrency;
+
+        private Coroutine _CoroutineHP;
+        private Coroutine _CoroutineCurrency;
+
+        private void Update()
+        {
+            UpdateTime();
+        }
 
         private void OnEnable()
         {
             Gameplay.CurrencyController.OnChanged += UpdateCurrency;
-            FindObjectOfType<Gameplay.Tree>().OnChangeHP += UpdateHealth;
+            var tree = FindObjectOfType<Gameplay.Tree>();
+            tree.OnChangeHP += UpdateHealth;
+
+            _LastCurrency = Gameplay.CurrencyController.Value;
+            
+            _CurrencyLabel.text = Gameplay.CurrencyController.Value.ToString();
+            
             UpdateCurrency();
+            _HealthFill.fillAmount = 1.0f;
+            _HealthLabel.text = string.Format(
+                "{0}/{1}",
+                ((int)tree.HP).ToString(),
+                ((int)tree.BaseHP).ToString());
         }
 
         private void OnDisable()
@@ -34,12 +56,46 @@ namespace UI
 
         private void UpdateCurrency()
         {
+            if(_CoroutineCurrency != null)
+            {
+                StopCoroutine(_CoroutineCurrency);
+            }
+            _CoroutineCurrency = StartCoroutine(UpdateCurrencyUpdate());
+        }
+
+        private IEnumerator UpdateCurrencyUpdate()
+        {
+            var t = 0.0f;
+            var maxt = 0.5f;
+            var startV = _LastCurrency;
+            var finalV = Gameplay.CurrencyController.Value;
+            var startScale = _CurrencyLabel.transform.localScale;
+            while(t < maxt)
+            {
+                if(t < 0.25f)
+                {
+                    var n = t/0.25f;
+                    _CurrencyLabel.transform.localScale = Vector3.Lerp(startScale, Vector3.one * 1.3f, n);
+                } else
+                {
+                    var n = (t-0.25f)/0.25f;
+                    _CurrencyLabel.transform.localScale = Vector3.Lerp(Vector3.one * 1.3f, Vector3.one, n);
+                }
+
+                t += Time.deltaTime;
+                var v = Mathf.SmoothStep(startV, finalV, t/maxt);
+                _LastCurrency = (int)v;
+                _CurrencyLabel.text = ((int)v).ToString();
+                yield return null;
+            }
             _CurrencyLabel.text = Gameplay.CurrencyController.Value.ToString();
         }
 
         private void UpdateTime()
         {
-            _TimeLabel.text = Random.Range(10, 100).ToString();
+            var t = Gameplay.TimeController.Value;
+            var interval = System.TimeSpan.FromSeconds(t);
+            _TimeLabel.text = interval.ToString("mm\\:ss");
         }
 
 
@@ -48,10 +104,34 @@ namespace UI
             var tree = FindObjectOfType<Gameplay.Tree>();
             if(tree != null)
             {
-                _TreeLabel.text = "TREE HP = " + tree.HP + "/" + tree.BaseHP;
+                _HealthLabel.text = string.Format(
+                    "{0}/{1}",
+                    ((int)tree.HP).ToString(),
+                    ((int)tree.BaseHP).ToString());
+                if(_CoroutineHP != null)
+                {
+                    StopCoroutine(_CoroutineHP);
+                }
+                _CoroutineHP = StartCoroutine(UpdateHealthDiff(diff));
             }
         }
 
+        private IEnumerator UpdateHealthDiff(float diff)
+        {
+            var tree = FindObjectOfType<Gameplay.Tree>();
+            var startValue = _HealthFill.fillAmount;
+            var finalValue = tree.HP / tree.BaseHP;
+            var t = 0.0f;
+            var maxt = 0.3f;
+            while(t < maxt)
+            {
+                t += Time.deltaTime;
+                var v = Mathf.SmoothStep(startValue, finalValue, t/maxt);
+                _HealthFill.fillAmount =  v;
+                yield return null;
+            }
+            _HealthFill.fillAmount = tree.HP / tree.BaseHP;
+        }
         public void PauseClickHandler()
         {
             GameController.Instance.HandlePause();
