@@ -6,6 +6,8 @@ public class UIController : MonoBehaviour
 	private static UIController instance;
     public static UIController Instance { get { return instance; } }
 
+	private bool canDisablePanel;
+
     private void Awake()
     {
         if(instance != null && instance != this) Destroy(this.gameObject); 
@@ -22,11 +24,22 @@ public class UIController : MonoBehaviour
 	{
 		Debug.Log("UpdateSelectedGod: "+godData.Name);
 		GodPanel.DisplayGodData(godData);
+		Invoke(nameof(SetDisability), 0.25f);
+	}
+
+	private void SetDisability()
+	{
+		canDisablePanel = true;
 	}
 
 	public void DisableGodPanel()
 	{
-		//if(GodPanel.view.activeInHierarchy) GodPanel.Disable();
+		if(GodPanel.view.activeInHierarchy && canDisablePanel)
+		{
+			Debug.Log("Wylaczam panel");
+			 GodPanel.Disable();
+			 canDisablePanel = false;
+		}
 	}
 
 }

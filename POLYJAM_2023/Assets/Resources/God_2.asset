@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 1
   Name: Second God
   Description: second god desc
-  Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   IconUI: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   Abillity: {fileID: 1569053232800555188, guid: 4836035bf730aa04bb58c04918ef2110, type: 3}
   AbillityType: 1
