@@ -89,7 +89,7 @@ namespace UI
                 var v = Mathf.SmoothStep(startV, finalV, t/maxt);
                 if((int)v != _LastCurrency && playSound)
                 {
-                    AudioController.Instance.PlaySound(_CurrencySound);
+                    AudioController.Instance?.PlaySound(_CurrencySound);
                 }
                 _LastCurrency = (int)v;
                 _CurrencyLabel.text = ((int)v).ToString();

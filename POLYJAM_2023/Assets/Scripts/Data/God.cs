@@ -23,10 +23,16 @@ public class God : ScriptableObject
 	[Space(10)]
 	public Sprite Sprite;
 	public Sprite IconUI;
+	
+	[Space(10)]
+	public Color CooldownUIColor;
 
 	[Space(10)]
 	public Abillity Abillity;
 	public AbillityType AbillityType;
+
+	[Space(10)]
+	public Sprite[] RangeSprites;
 
 	[Space(10)]
 	public Skill[] Skills;
