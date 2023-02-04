@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ac5eb5992acc747b75552c5caf9950, type: 3}
   m_Name: God_2
   m_EditorClassIdentifier: 
-  ID: 0
-  Name: Swarozyc
+  ID: 1
+  Name: Perun
   Description: god desc temp
-  Sprite: {fileID: 21300000, guid: 1263229fcb05683428dd46a83c23a247, type: 3}
-  IconUI: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  Abillity: {fileID: 1569053232800555188, guid: 4836035bf730aa04bb58c04918ef2110, type: 3}
-  AbillityType: 1
+  Sprite: {fileID: 21300000, guid: c374ce37168791e4d944068ec3a6aafc, type: 3}
+  IconUI: {fileID: 21300000, guid: 01925796adc075a4ba43cac7c0475907, type: 3}
+  CooldownUIColor: {r: 0.85490197, g: 0.18431373, b: 0.8666667, a: 1}
+  Abillity: {fileID: 7246403073326237947, guid: a45945ec1acba694da54a34bed40f584, type: 3}
+  AbillityType: 0
   Skills:
   - SkillType: 0
     Value:
-    - 200
+    - 25
     - 50
     - 100
     - 150

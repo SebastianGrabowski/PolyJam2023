@@ -23,6 +23,9 @@ public class God : ScriptableObject
 	[Space(10)]
 	public Sprite Sprite;
 	public Sprite IconUI;
+	
+	[Space(10)]
+	public Color CooldownUIColor;
 
 	[Space(10)]
 	public Abillity Abillity;

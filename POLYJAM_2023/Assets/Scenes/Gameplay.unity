@@ -2142,6 +2142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopView
       objectReference: {fileID: 0}
+    - target: {fileID: 3760718021039781228, guid: bc226c07575f1f84d9c50ac0e63353d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4572291509304975545, guid: bc226c07575f1f84d9c50ac0e63353d2, type: 3}
       propertyPath: m_Pivot.x
       value: 1
