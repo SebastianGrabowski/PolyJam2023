@@ -18,7 +18,7 @@ namespace Gameplay.Units
 
         void Update()
         {
-            if (GameController.Instance.IsGameOver)
+            if (GameController.Instance.IsGameOver || GameController.Instance.Pause)
             {
                 _Rigidbody.velocity = Vector2.zero;
                 return;
@@ -37,7 +37,7 @@ namespace Gameplay.Units
                     var d = Vector2.Distance((Vector2)transform.position, Vector2.zero);
                     if(d <= AttackRange)
                     {
-                         _AttackT += Time.deltaTime;
+                         _AttackT += GameController.DT;
                         if(_AttackT >= AttackSpeed)
                         {
                             _AttackT = 0.0f;
@@ -51,7 +51,7 @@ namespace Gameplay.Units
                 var d = Vector2.Distance(_ActiveEnemy.transform.position, transform.position);
                 if(d <= AttackRange)
                 {
-                    _AttackT += Time.deltaTime;
+                    _AttackT += GameController.DT;
                     if(_AttackT >= AttackSpeed)
                     {
                         _AttackT = 0.0f;
