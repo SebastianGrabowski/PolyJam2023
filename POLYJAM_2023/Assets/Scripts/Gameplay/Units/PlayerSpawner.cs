@@ -41,6 +41,9 @@ namespace Gameplay.Units
         // Update is called once per frame
         void Update()
         {
+            if(GameController.Instance.IsGameOver)
+                return;
+
             _Pointer.gameObject.SetActive(Active);
 
             if (Active)

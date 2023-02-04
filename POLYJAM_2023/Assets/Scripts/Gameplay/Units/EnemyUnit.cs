@@ -18,6 +18,12 @@ namespace Gameplay.Units
 
         void Update()
         {
+            if (GameController.Instance.IsGameOver)
+            {
+                _Rigidbody.velocity = Vector2.zero;
+                return;
+            }
+
             var middleDist = Vector2.Distance(transform.position, Vector2.zero);
             
             var dir = Vector2.zero;

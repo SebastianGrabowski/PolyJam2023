@@ -3,9 +3,11 @@ namespace Gameplay.Units
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.Events;
 
     public class EnemySpawner : MonoBehaviour
     {
+
         [SerializeField]private EnemyUnit[] _Units;
         [SerializeField]private float _Interval;
         [SerializeField]private int _MinCount;
@@ -15,6 +17,9 @@ namespace Gameplay.Units
 
         void Update()
         {
+            if(GameController.Instance.IsGameOver)
+                return;
+
             _Time += Time.deltaTime;
             if(_Time >= _Interval)
             {

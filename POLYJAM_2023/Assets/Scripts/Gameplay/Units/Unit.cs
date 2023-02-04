@@ -3,9 +3,13 @@ namespace Gameplay.Units
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.Events;
 
     public class Unit : MonoBehaviour
     {
+
+        public static UnityAction<bool, float, Vector2> OnDamage { get; set; }
+
         [SerializeField]protected Rigidbody2D _Rigidbody;
         [SerializeField]protected Transform _View;
         [SerializeField]private float _AnimAngleMinMax;
@@ -52,6 +56,8 @@ namespace Gameplay.Units
                 DeadHandler();
                 Destroy(gameObject);
             }
+
+            OnDamage?.Invoke(this is PlayerUnit, value, transform.position + (Vector3.up * 0.7f));
         }
 
         protected virtual void DeadHandler() { }
