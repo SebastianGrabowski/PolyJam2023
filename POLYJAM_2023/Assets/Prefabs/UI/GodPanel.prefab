@@ -239,6 +239,7 @@ MonoBehaviour:
   - {fileID: 3132141816747069705}
   - {fileID: 3051694054665261469}
   - {fileID: 2905249367254765695}
+  _UpgradeSound: {fileID: 8300000, guid: f7779baf26118ce4c90cda0b194b3ee5, type: 3}
 --- !u!114 &8375564611780843994
 MonoBehaviour:
   m_ObjectHideFlags: 0

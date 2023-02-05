@@ -6,6 +6,8 @@ namespace Gameplay.Units
 
     public class PlayerUnit : Unit
     {
+        [SerializeField]private AudioClip _BuffSound;
+
         [SerializeField] public GameObject BuffIcon;
         public Sprite BuyIcon;
         public int Cost;
@@ -62,6 +64,8 @@ namespace Gameplay.Units
 
         public void AddBuff(float value)
         {
+            if(_BuffSound != null)
+                AudioController.Instance.PlaySound(_BuffSound);
             BuffIcon.SetActive(true);
             attackBeforeBuff = Attack;
             Attack += value;
