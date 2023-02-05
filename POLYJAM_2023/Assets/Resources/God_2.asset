@@ -20,8 +20,8 @@ MonoBehaviour:
   IdleGlowSprite: {fileID: 21300000, guid: 7ed0add6967ad594a84e5bdedfb807da, type: 3}
   EmptySprite: {fileID: 21300000, guid: e897ac9b00e33f84192d57ec312fbd13, type: 3}
   HoveredSprite: {fileID: 21300000, guid: 9e91fcd20cdb2ad409986db235b50082, type: 3}
-  IconUI: {fileID: 21300000, guid: 01925796adc075a4ba43cac7c0475907, type: 3}
-  CooldownUIColor: {r: 0.85490197, g: 0.18431373, b: 0.8666667, a: 1}
+  IconUI: {fileID: 21300000, guid: 18db141b5efe209468b2158230a2c55e, type: 3}
+  CooldownUIColor: {r: 0.70980394, g: 0.28627452, b: 0.9254902, a: 1}
   Abillity: {fileID: 7246403073326237947, guid: a45945ec1acba694da54a34bed40f584, type: 3}
   AbillityType: 0
   RangeSprites:

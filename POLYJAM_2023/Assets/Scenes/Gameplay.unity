@@ -962,6 +962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GodPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 558105480624988208, guid: f072592faa076e045a77b0327256de34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 558105480624988210, guid: f072592faa076e045a77b0327256de34, type: 3}
       propertyPath: m_Pivot.x
       value: 1

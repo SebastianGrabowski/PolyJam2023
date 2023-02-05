@@ -9,6 +9,8 @@ using Gameplay;
 
 public class GodPanel : MonoBehaviour
 {
+    [SerializeField] private Image iconHeader;
+
     [Space(10)]
     [SerializeField] private TextMeshProUGUI godName;
     [SerializeField] private TextMeshProUGUI godDesc;
@@ -43,6 +45,10 @@ public class GodPanel : MonoBehaviour
         view.SetActive(true);
         
         this.godData = godData;
+
+        iconHeader.sprite = godData.IconUI;
+
+        godName.color = godData.CooldownUIColor;
 
         godName.text = godData.Name;
         godDesc.text = godData.Description;
