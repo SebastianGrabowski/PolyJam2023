@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 3209600050257749704}
   - component: {fileID: 475317468905161731}
   - component: {fileID: 8743924105286441598}
+  - component: {fileID: 3297317795287749833}
   m_Layer: 0
   m_Name: GodSprite
   m_TagString: God
@@ -392,6 +393,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &3297317795287749833
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4073308920682014025}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.46144915}
+  serializedVersion: 2
+  m_Radius: 0.7922926
 --- !u!1 &5833529502236061835
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +503,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8435148547808524101}
   - component: {fileID: 8075275802116636026}
-  - component: {fileID: 7736487038429641561}
   m_Layer: 0
   m_Name: GodObject
   m_TagString: Untagged
@@ -532,22 +548,6 @@ MonoBehaviour:
   idleGlowRenderer: {fileID: 4258759190929155716}
   spriteRenderer: {fileID: 3209600050257749704}
   rangeDisplayer: {fileID: 3278037004704769596}
---- !u!58 &7736487038429641561
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5859826205483335240}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.36580998}
-  serializedVersion: 2
-  m_Radius: 0.57199186
 --- !u!1 &8143839386196039073
 GameObject:
   m_ObjectHideFlags: 0
