@@ -15,10 +15,14 @@ namespace UI
         [SerializeField]private CanvasGroup _Cg;
 
         [SerializeField]private Image _EnemyImage;
+        [SerializeField]private Image _PlayerImage;
         [SerializeField]private Sprite[] _Enemies;
+        [SerializeField]private Sprite[] _Players;
         [SerializeField]private TextMeshProUGUI _NewUnitLabel;
         [SerializeField]private TextMeshProUGUI _NewGodLabel;
         [SerializeField]private TextMeshProUGUI _NewEnemyLabel;
+
+        [SerializeField]private AudioClip _Sound;
 
         private bool _Visible;
         private int _Lvl;
@@ -60,6 +64,7 @@ namespace UI
             _Cg.alpha = 0.0f;
             GetComponent<Animator>().SetTrigger("Show");
             yield return new WaitForSeconds(1.5f);
+            AudioController.Instance.PlaySound(_Sound);
             _Label.SetActive(true);
             while (!Input.anyKey)
             {
@@ -84,6 +89,8 @@ namespace UI
                 _NewEnemyLabel.text = "Enemy Elves are comming!";
                 _EnemyImage.enabled = true;
                 _EnemyImage.sprite = _Enemies[1];
+                _PlayerImage.enabled = true;
+                _EnemyImage.sprite = _Players[1];
             }
             
             if(_Lvl == 2)
@@ -95,6 +102,8 @@ namespace UI
                 _NewEnemyLabel.text = "Frightening Giants are comming!";
                 _EnemyImage.enabled = true;
                 _EnemyImage.sprite = _Enemies[2];
+                _PlayerImage.enabled = true;
+                _EnemyImage.sprite = _Players[2];
             }
 
             if(_Lvl == 3)
@@ -104,6 +113,7 @@ namespace UI
                 _NewEnemyLabel.transform.parent.gameObject.SetActive(false);
                 _NewEnemyLabel.text = "ENEMY 3";
                 _EnemyImage.enabled = false;
+                _PlayerImage.enabled = false;
             }
         }
     }
