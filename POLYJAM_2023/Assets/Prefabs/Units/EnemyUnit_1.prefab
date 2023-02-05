@@ -235,7 +235,7 @@ MonoBehaviour:
   AttackRange: 6
   MoveSpeed: 1.4
   _DeathParticles: {fileID: 2577416468800591430}
-  CurrencyForKill: 5
+  CurrencyForKill: 7
 --- !u!58 &913288927069642209
 CircleCollider2D:
   m_ObjectHideFlags: 0

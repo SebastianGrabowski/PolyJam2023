@@ -349,8 +349,8 @@ MonoBehaviour:
   _Glow: {fileID: 1214888794212922361}
   DisplayName: Wampierz
   DisplayDesc: "Wampierrz jes jak ka\u017Cdy widzi, i pije krew."
-  BaseHP: 500
-  HP: 500
+  BaseHP: 800
+  HP: 800
   Attack: 100
   AttackSpeed: 0.25
   AttackRange: 6
