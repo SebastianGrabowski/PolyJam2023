@@ -76,7 +76,7 @@ namespace Gameplay.Units
                         if(_AttackT >= AttackSpeed)
                         {
                             _AttackT = 0.0f;
-                            FindObjectOfType<Gameplay.Tree>()?.ApplyDamage(Attack);
+                            FindObjectOfType<Gameplay.Tree>()?.ApplyDamage(Attack * 0.3f);
                             PlayAttackSound();
                         }
                     }

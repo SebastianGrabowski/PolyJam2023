@@ -63,6 +63,10 @@ public class GodObject : MonoBehaviour
 
     void Update()
     {
+        var gc = GameController.Instance;
+        if(gc!=null && (gc.Pause || gc.IsGameOver))
+            return;
+
         if(!isDataSet) return;
 
         var distance = Vector2.Distance(transform.position, target.position);
