@@ -77,29 +77,29 @@ namespace UI
         {
             if(_Lvl == 1)
             {
-                _NewGodLabel.text = "Statua idola - Perun - zosta≥a odblokowana!";
+                _NewGodLabel.text = "Idol statue - Perun - is now available!";
                 _NewUnitLabel.transform.parent.gameObject.SetActive(true);
-                _NewUnitLabel.text = "Nowa jednostka broniπca - Baba Jaga odblokowana";
+                _NewUnitLabel.text = "New defensive unit - Baba Jaga - unlocked!";
                 _NewEnemyLabel.transform.parent.gameObject.SetActive(true);
-                _NewEnemyLabel.text = "Wrogie elfy nadciπgajπ!";
+                _NewEnemyLabel.text = "Enemy Elves are comming!";
                 _EnemyImage.enabled = true;
                 _EnemyImage.sprite = _Enemies[1];
             }
             
             if(_Lvl == 2)
             {
-                _NewGodLabel.text = "Statua idola - Dadzbog - zosta≥a odblokowana!";
+                _NewGodLabel.text = "Idol statue - Dad≈∫bog - is now available!";
                 _NewUnitLabel.transform.parent.gameObject.SetActive(true);
-                _NewUnitLabel.text = "Nowa jednostka broniπca - Wampierz odblokowany";
+                _NewUnitLabel.text = "New defensive unit - Wampierz - unlocked";
                 _NewEnemyLabel.transform.parent.gameObject.SetActive(true);
-                _NewEnemyLabel.text = "Przeraøajπce cyklopy nadciπgajπ!";
+                _NewEnemyLabel.text = "Frightening Giants are comming!";
                 _EnemyImage.enabled = true;
                 _EnemyImage.sprite = _Enemies[2];
             }
 
             if(_Lvl == 3)
             {
-                _NewGodLabel.text = "Statua idola - Weles - zosta≥a odblokowana!";
+                _NewGodLabel.text = "Idol statue - Weles - is now available!";
                 _NewUnitLabel.transform.parent.gameObject.SetActive(false);
                 _NewEnemyLabel.transform.parent.gameObject.SetActive(false);
                 _NewEnemyLabel.text = "ENEMY 3";

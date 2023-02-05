@@ -417,8 +417,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "D\u0105b wszechwieczny wyrwany z korzeniami.\n<size=30>Postaraj si\u0119
-    lepiej broni\u0107 magicznego kr\u0119gu</size>"
+  m_text: 'Eternal oak was ripped out with roots!
+
+    <size=30>Next time try better
+    to protect your magic circle.</size>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e4c5c39e33eda9f49ab1263c605e8e72, type: 2}
   m_sharedMaterial: {fileID: 6902784950817532658, guid: e4c5c39e33eda9f49ab1263c605e8e72, type: 2}
