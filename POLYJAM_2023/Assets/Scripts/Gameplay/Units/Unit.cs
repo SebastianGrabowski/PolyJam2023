@@ -132,8 +132,8 @@ namespace Gameplay.Units
             }
         }
 
-        public void PlayAttackSound() { AudioController.Instance.PlaySound(_AttackSound); }
-        public void PlayDeathSound() { AudioController.Instance.PlaySound(_DeathSound); }
+        public void PlayAttackSound() { if (_AttackSound != null) AudioController.Instance.PlaySound(_AttackSound); }
+        public void PlayDeathSound() { if (_DeathSound != null) AudioController.Instance.PlaySound(_DeathSound); }
 
         private static Color _InvisibleWhite = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 
