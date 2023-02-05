@@ -21,6 +21,9 @@ public class God : ScriptableObject
     public string Description;
 
 	[Space(10)]
+    public float TimeToUnlock;
+
+	[Space(10)]
 	public Sprite Sprite;
 	public Sprite IdleGlowSprite;
 	public Sprite HoveredSprite;

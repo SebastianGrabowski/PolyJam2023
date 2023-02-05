@@ -52,7 +52,8 @@ public class Abillity : MonoBehaviour
 
         foreach (var obj in currentCollisions)
         {
-            var enemy = obj.GetComponent<EnemyUnit>();
+            EnemyUnit enemy = null;
+            if(obj != null) enemy = obj.GetComponent<EnemyUnit>();
             if(enemy != null) valid.Add(enemy);
         }
 

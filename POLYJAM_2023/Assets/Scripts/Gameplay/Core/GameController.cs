@@ -98,14 +98,22 @@ public class GameController : MonoBehaviour
     {
         availableGods = Resources.LoadAll<God>("");
 
+        int i = 0;
+        bool isUnlocked = false;
         foreach(var god in availableGods)
         {
             yield return new WaitForSeconds(0.5f);
-            var data = new GodData(god.Name, god.Description, god.Sprite, god.IdleGlowSprite, god.HoveredSprite, god.IconUI, god.AbillityType, god.Abillity, god.CooldownUIColor, god.Skills, god.RangeSprites);
+
+            var data = new GodData(god.Name, god.Description, god.TimeToUnlock, god.Sprite, god.IdleGlowSprite, god.HoveredSprite, god.IconUI, god.AbillityType, god.Abillity, god.CooldownUIColor, god.Skills, god.RangeSprites);
             currentGods.Add(data);
 
+            if(i == 0) isUnlocked = true;
+            else isUnlocked = false;
+
             var obj = Instantiate(godObject, spawnPositions[god.ID].position, Quaternion.identity);
-            obj.SetGod(data, targetPositions[god.ID]);
+            obj.SetGod(data, targetPositions[god.ID], isUnlocked);
+
+            i++;
         }
     }
 

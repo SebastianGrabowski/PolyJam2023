@@ -13,6 +13,18 @@ public class GodObject : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [Space(10)]
+    [SerializeField] private BoxCollider2D boxCollider2D;
+    [SerializeField] private CircleCollider2D circleCollider2D;
+
+    [Space(10)]
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject abillityUseGlow;
+
+    [Space(10)]
+    [SerializeField] private Color unlockedColor;
+    [SerializeField] private Color lockedColor;
+
+    [Space(10)]
     [SerializeField] private SpriteRenderer idleGlowRenderer;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer rangeDisplayer;
@@ -24,6 +36,7 @@ public class GodObject : MonoBehaviour
     private Transform target;
     private Unit targetUnit;
 
+    private bool isUnlocked;
     private bool isDataSet;
     private bool isMouseOver;
 
@@ -31,8 +44,11 @@ public class GodObject : MonoBehaviour
     private float currentCooldown;
     private float timeElapsed;
 
-    public void SetGod(GodData data, Transform transform)
+    public void SetGod(GodData data, Transform transform, bool isUnlocked)
     {
+        this.isUnlocked = isUnlocked;
+        if(!isUnlocked) DisplayLockedGod();
+        
         GodData = data;
         target = transform;
         spriteRenderer.sprite = data.Sprite;
@@ -40,6 +56,34 @@ public class GodObject : MonoBehaviour
         imageFill.color = data.CooldownUIColor;
 
         isDataSet = true;
+
+        Invoke(nameof(UnlockGod), data.TimeToUnlock);
+    }
+
+    private void DisplayLockedGod()
+    {
+        circleCollider2D.enabled = false;
+        boxCollider2D.enabled = false;
+        
+        spriteRenderer.color = lockedColor;
+
+        idleGlowRenderer.gameObject.SetActive(false);
+        abillityUseGlow.SetActive(false);
+        canvas.SetActive(false);
+    }
+
+    public void UnlockGod()
+    {
+        circleCollider2D.enabled = true;
+        boxCollider2D.enabled = true;
+
+        spriteRenderer.color = unlockedColor;
+
+        idleGlowRenderer.gameObject.SetActive(true);
+        abillityUseGlow.SetActive(true);
+        canvas.SetActive(true);
+
+        isUnlocked = true;
     }
 
     public void OnMouseOverGod()
@@ -78,6 +122,8 @@ public class GodObject : MonoBehaviour
         }
         else 
         {
+            if(!isUnlocked) return;
+            
             if(isMouseOver && Input.GetMouseButtonDown(0)) UIController.Instance.OnGodSelected?.Invoke(GodData);
 
             if(Time.time >= timeElapsed)

@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6510810496047686218
 Transform:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 3265138160707870509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8435148547808524101}
@@ -150,7 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: c4d364f93c9344d409556a216aacbf43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 708ad4e3364e4cb42a7de229bef1c24e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
@@ -425,7 +425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8875246175276650862
 Transform:
   m_ObjectHideFlags: 0
@@ -545,6 +545,12 @@ MonoBehaviour:
   imageFill: {fileID: 8946120518836899664}
   shootingPoint: {fileID: 8563219277166159699}
   animator: {fileID: 8743924105286441598}
+  boxCollider2D: {fileID: 475317468905161731}
+  circleCollider2D: {fileID: 3297317795287749833}
+  canvas: {fileID: 9119101313628127961}
+  abillityUseGlow: {fileID: 5833529502236061835}
+  unlockedColor: {r: 1, g: 1, b: 1, a: 1}
+  lockedColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   idleGlowRenderer: {fileID: 4258759190929155716}
   spriteRenderer: {fileID: 3209600050257749704}
   rangeDisplayer: {fileID: 3278037004704769596}
@@ -596,7 +602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5153386101727824911
 Transform:
   m_ObjectHideFlags: 0

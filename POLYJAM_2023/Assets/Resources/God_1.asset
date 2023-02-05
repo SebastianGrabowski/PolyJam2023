@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   Name: Swarozyc
-  Description: Shoots fire balls to the nearest enemy.
+  Description: God of fire -shoots fire balls to the nearest enemy.
+  TimeToUnlock: 0
   Sprite: {fileID: 21300000, guid: 1a12f53a2cad63841ab6ecd040799b65, type: 3}
   IdleGlowSprite: {fileID: 21300000, guid: 043d9f22f1d6c2e449aba8fe7e9b038c, type: 3}
   HoveredSprite: {fileID: 21300000, guid: 6aca7b57c9f6a5248842a78659206fe4, type: 3}
@@ -35,7 +36,7 @@ MonoBehaviour:
     - 100
     - 200
     - 300
-    - 500
+    - 450
     SkillCost:
     - 10
     - 25
@@ -44,11 +45,11 @@ MonoBehaviour:
     - 200
   - SkillType: 1
     Value:
-    - 2
-    - 3
-    - 5
-    - 8
-    - 9
+    - 3.2
+    - 4.25
+    - 7.25
+    - 11.5
+    - 13
     SkillCost:
     - 10
     - 25

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   Name: Dadzbog
-  Description: Boosts attack damage of the nearest player unit.
+  Description: God of sun - boosts attack damage of the nearest player unit.
+  TimeToUnlock: 120
   Sprite: {fileID: 21300000, guid: fb1e1a93dd117a8419058e56f986eae5, type: 3}
   IdleGlowSprite: {fileID: 21300000, guid: 7af52abd0d9d2bf4b9a98d6fc6310b54, type: 3}
   HoveredSprite: {fileID: 21300000, guid: fc0ce85e71f9851468a94adb022f2a58, type: 3}
@@ -44,11 +45,11 @@ MonoBehaviour:
     - 200
   - SkillType: 1
     Value:
-    - 2
-    - 3
-    - 5
-    - 8
-    - 9
+    - 3.2
+    - 4.25
+    - 7.25
+    - 11.5
+    - 13
     SkillCost:
     - 10
     - 25
