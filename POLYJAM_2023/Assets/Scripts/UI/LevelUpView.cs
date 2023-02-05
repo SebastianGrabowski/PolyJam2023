@@ -41,10 +41,6 @@ namespace UI
                 {
                     _Lvl = 3;
 
-                } else if (v == 239)
-                {
-                    _Lvl = 4;
-
                 }
 
                 if(_LastLVL < _Lvl && _Lvl != 0)
@@ -70,6 +66,8 @@ namespace UI
                 yield return null;
             }
             _Cg.alpha = 0.0f;
+            GetComponent<Animator>().SetTrigger("Hide");
+            yield return new WaitForSeconds(1.1f);
             _View.SetActive(false);
             _Visible = false;
             GameController.Instance.Pause = false;
@@ -79,41 +77,34 @@ namespace UI
         {
             if(_Lvl == 1)
             {
-                _NewGodLabel.text = "New god lvl 1";
+                _NewGodLabel.text = "Statua idola - Perun - zosta³a odblokowana!";
                 _NewUnitLabel.transform.parent.gameObject.SetActive(true);
+                _NewUnitLabel.text = "Nowa jednostka broni¹ca - Baba jaga odblokowana";
                 _NewEnemyLabel.transform.parent.gameObject.SetActive(true);
-                _NewEnemyLabel.text = "ENEMY 1";
+                _NewEnemyLabel.text = "Wrogie elfy nadci¹gaj¹!";
                 _EnemyImage.enabled = true;
                 _EnemyImage.sprite = _Enemies[1];
             }
             
             if(_Lvl == 2)
             {
-                _NewGodLabel.text = "New god lvl 2";
+                _NewGodLabel.text = "Statua idola - Dadzbog - zosta³a odblokowana!";
                 _NewUnitLabel.transform.parent.gameObject.SetActive(true);
+                _NewUnitLabel.text = "Nowa jednostka broni¹ca - Wampierz odblokowany";
                 _NewEnemyLabel.transform.parent.gameObject.SetActive(true);
-                _NewEnemyLabel.text = "ENEMY 2";
+                _NewEnemyLabel.text = "Przera¿aj¹ce cyklopy nadci¹gaj¹!";
                 _EnemyImage.enabled = true;
                 _EnemyImage.sprite = _Enemies[2];
             }
 
             if(_Lvl == 3)
             {
-                _NewGodLabel.text = "New god lvl 3";
-                _NewUnitLabel.transform.parent.gameObject.SetActive(true);
-                _NewEnemyLabel.transform.parent.gameObject.SetActive(true);
+                _NewGodLabel.text = "Statua idola - Weles - zosta³a odblokowana!";
+                _NewUnitLabel.transform.parent.gameObject.SetActive(false);
+                _NewEnemyLabel.transform.parent.gameObject.SetActive(false);
                 _NewEnemyLabel.text = "ENEMY 3";
                 _EnemyImage.enabled = false;
             }
-
-            if(_Lvl == 4)
-            {
-                _NewGodLabel.text = "New god lvl 4";
-                _NewUnitLabel.transform.parent.gameObject.SetActive(false);
-                _NewEnemyLabel.transform.parent.gameObject.SetActive(false);
-                _EnemyImage.enabled = false;
-            }
-
         }
     }
 }
