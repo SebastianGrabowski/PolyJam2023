@@ -133,7 +133,7 @@ public class GameController : MonoBehaviour
         //reload scene, fade before????
         FindObjectOfType<Fade>().FadeOut(()=>{ 
             Gameplay.Units.Unit.AllUnits.Clear(); 
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0); 
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1); 
             });
         
     }
