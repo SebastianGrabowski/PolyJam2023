@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
 
-            var data = new GodData(god.Name, god.Description, god.TimeToUnlock, god.Sprite, god.IdleGlowSprite, god.HoveredSprite, god.IconUI, god.AbillityType, god.Abillity, god.CooldownUIColor, god.Skills, god.RangeSprites);
+            var data = new GodData(god.Name, god.Description, god.TimeToUnlock, god.Sprite, god.EmptySprite, god.IdleGlowSprite, god.HoveredSprite, god.IconUI, god.AbillityType, god.Abillity, god.CooldownUIColor, god.Skills, god.RangeSprites);
             currentGods.Add(data);
 
             if(i == 0) isUnlocked = true;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Gameplay.Units;
 using UnityEngine.UI;
+using Gameplay;
 
 public class GodObject : MonoBehaviour
 {
@@ -39,32 +40,36 @@ public class GodObject : MonoBehaviour
     private bool isUnlocked;
     private bool isDataSet;
     private bool isMouseOver;
+    private bool hasBeenUnlocked = false;
 
     private float rate;
     private float currentCooldown;
     private float timeElapsed;
+    private float timeToUnlock;
 
     public void SetGod(GodData data, Transform transform, bool isUnlocked)
     {
         this.isUnlocked = isUnlocked;
-        if(!isUnlocked) DisplayLockedGod();
-        
         GodData = data;
+
+        if(!isUnlocked) DisplayLockedGod();
+
         target = transform;
         spriteRenderer.sprite = data.Sprite;
         idleGlowRenderer.sprite = data.IdleGlowSprite;
         imageFill.color = data.CooldownUIColor;
+        timeToUnlock = data.TimeToUnlock;
 
         isDataSet = true;
-
-        Invoke(nameof(UnlockGod), data.TimeToUnlock);
     }
 
     private void DisplayLockedGod()
     {
         circleCollider2D.enabled = false;
         boxCollider2D.enabled = false;
+        hasBeenUnlocked = false;
         
+        spriteRenderer.sprite = GodData.EmptySprite;
         spriteRenderer.color = lockedColor;
 
         idleGlowRenderer.gameObject.SetActive(false);
@@ -77,6 +82,7 @@ public class GodObject : MonoBehaviour
         circleCollider2D.enabled = true;
         boxCollider2D.enabled = true;
 
+        spriteRenderer.sprite = GodData.Sprite;
         spriteRenderer.color = unlockedColor;
 
         idleGlowRenderer.gameObject.SetActive(true);
@@ -111,6 +117,12 @@ public class GodObject : MonoBehaviour
         var gc = GameController.Instance;
         if(gc!=null && (gc.Pause || gc.IsGameOver))
             return;
+
+        if(TimeController.Value >= timeToUnlock && !hasBeenUnlocked) 
+        {
+            UnlockGod();
+            hasBeenUnlocked = true;
+        }  
 
         if(!isDataSet) return;
 
