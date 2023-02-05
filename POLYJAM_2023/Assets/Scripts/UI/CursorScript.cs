@@ -5,14 +5,10 @@ using UnityEngine.UI;
 
 public class CursorScript : MonoBehaviour
 {
-    [SerializeField] private Image cursorImage;
+    [SerializeField] private GameObject cursorImage;
+    [SerializeField] private GameObject cursorImageOnMap;
 
-    [Space(10)]
-    [SerializeField] private Sprite basic;
-    [SerializeField] private Sprite setOnMap;
-
-    [Space(10)]
-    [SerializeField] private GameObject objectX;
+    private bool isCurrentActiveOnMap = false;
 
     private void Awake()
     {
@@ -24,15 +20,13 @@ public class CursorScript : MonoBehaviour
         transform.position = Input.mousePosition;
     }
 
-    public void CursorSetOnMap()
+    public void SetCursor(bool isActiveOnMap)
     {
-        cursorImage.sprite = setOnMap;
-        objectX.SetActive(true);
-    }
+        if(isActiveOnMap == isCurrentActiveOnMap) return;
 
-    public void CursorSetBasic()
-    {
-        cursorImage.sprite = basic;
-        objectX.SetActive(false);
+        cursorImage.SetActive(!isActiveOnMap);
+        cursorImageOnMap.SetActive(isActiveOnMap);
+         
+        isCurrentActiveOnMap = isActiveOnMap;
     }
 }

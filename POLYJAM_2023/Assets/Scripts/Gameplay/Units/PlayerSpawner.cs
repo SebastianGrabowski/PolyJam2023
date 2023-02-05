@@ -27,9 +27,7 @@ namespace Gameplay.Units
                 if(_Active != value)
                 {
                     _Active = value;
-                    //_Pointer.gameObject.SetActive(_Active);
-                    if(_Active) _Cursor.CursorSetOnMap();
-                    else _Cursor.CursorSetBasic();
+                    _Cursor.SetCursor(_Active);
                 }
             }
         }
@@ -57,6 +55,8 @@ namespace Gameplay.Units
 
             if (Active)
             {
+                if(LockByHoverGod || UIController.Instance.IsOverUI) _Cursor.SetCursor(false);
+                else _Cursor.SetCursor(true);
                 
                 var validDistance = false;
                 Vector2 pos = Vector2.zero;
