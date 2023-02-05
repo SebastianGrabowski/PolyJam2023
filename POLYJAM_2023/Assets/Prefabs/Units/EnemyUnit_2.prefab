@@ -59,14 +59,14 @@ MonoBehaviour:
   _Glow: {fileID: 7972576972789384337}
   DisplayName: 
   DisplayDesc: 
-  BaseHP: 50
-  HP: 50
-  Attack: 20
-  AttackSpeed: 1.5
-  AttackRange: 10
-  MoveSpeed: 1
+  BaseHP: 800
+  HP: 800
+  Attack: 55
+  AttackSpeed: 1
+  AttackRange: 5
+  MoveSpeed: 0.8
   _DeathParticles: {fileID: 885940913652584997}
-  CurrencyForKill: 6
+  CurrencyForKill: 10
 --- !u!58 &3452006173752024388
 CircleCollider2D:
   m_ObjectHideFlags: 0
