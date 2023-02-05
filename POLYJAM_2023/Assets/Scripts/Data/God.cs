@@ -28,6 +28,7 @@ public class God : ScriptableObject
 	public Sprite IdleGlowSprite;
 	public Sprite EmptySprite;
 	public Sprite HoveredSprite;
+	public Sprite CooldownFillSprite;
 	public Sprite IconUI;
 	
 	[Space(10)]

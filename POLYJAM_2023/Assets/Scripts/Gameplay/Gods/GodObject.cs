@@ -26,6 +26,7 @@ public class GodObject : MonoBehaviour
     [SerializeField] private Color lockedColor;
 
     [Space(10)]
+    [SerializeField] private SpriteRenderer abillityUseGlowRenderer;
     [SerializeField] private SpriteRenderer idleGlowRenderer;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer rangeDisplayer;
@@ -50,14 +51,16 @@ public class GodObject : MonoBehaviour
     public void SetGod(GodData data, Transform transform, bool isUnlocked)
     {
         this.isUnlocked = isUnlocked;
+
         GodData = data;
+        spriteRenderer.sprite = data.Sprite;
 
         if(!isUnlocked) DisplayLockedGod();
 
         target = transform;
-        spriteRenderer.sprite = data.Sprite;
         idleGlowRenderer.sprite = data.IdleGlowSprite;
-        imageFill.color = data.CooldownUIColor;
+        abillityUseGlowRenderer.sprite = data.HoveredSprite;
+        imageFill.sprite = data.CooldownFillSprite;
         timeToUnlock = data.TimeToUnlock;
 
         isDataSet = true;
