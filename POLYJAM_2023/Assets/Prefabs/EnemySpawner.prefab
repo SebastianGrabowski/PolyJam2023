@@ -986,7 +986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Units:
   - {fileID: 5933471284991857318, guid: e8b623aeea49fbc4aadb36c9d9b11f7e, type: 3}
-  _FromTime: 130
+  _FromTime: 60
   _ToTime: 120
   _IntervalMin: 5
   _IntervalMax: 6
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Units:
   - {fileID: 6951544791124886146, guid: 414e5ac34c4736a47a2a0dbed505eee0, type: 3}
-  _FromTime: 240
+  _FromTime: 120
   _ToTime: 1000
   _IntervalMin: 15
   _IntervalMax: 30

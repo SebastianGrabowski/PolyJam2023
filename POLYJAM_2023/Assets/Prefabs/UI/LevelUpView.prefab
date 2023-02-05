@@ -642,7 +642,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _View: {fileID: 8573199097774181919}
-  _Label: {fileID: 0}
+  _Label: {fileID: 6549418467370607329}
+  _Cg: {fileID: 4382167427089941319}
+  _EnemyImage: {fileID: 762159357507503194}
+  _Enemies:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: bc7b8c0a90cbfc242a58ef26b3e038d5, type: 3}
+  - {fileID: 21300000, guid: 20ff94549d15e074fb015ee56aa2753b, type: 3}
+  - {fileID: 0}
+  _NewUnitLabel: {fileID: 5499479381998470053}
+  _NewGodLabel: {fileID: 3161915512593297859}
+  _NewEnemyLabel: {fileID: 1704531314716949303}
 --- !u!1 &4432112277899552783
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,9 +796,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 20ff94549d15e074fb015ee56aa2753b, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
