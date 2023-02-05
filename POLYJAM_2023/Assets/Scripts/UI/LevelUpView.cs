@@ -84,6 +84,11 @@ namespace UI
                 _NewEnemyLabel.text = "Wrogie elfy nadci¹gaj¹!";
                 _EnemyImage.enabled = true;
                 _EnemyImage.sprite = _Enemies[1];
+<<<<<<< Updated upstream
+=======
+                _PlayerImage.enabled = true;
+                _PlayerImage.sprite = _Players[1];
+>>>>>>> Stashed changes
             }
             
             if(_Lvl == 2)
@@ -95,6 +100,11 @@ namespace UI
                 _NewEnemyLabel.text = "Przera¿aj¹ce cyklopy nadci¹gaj¹!";
                 _EnemyImage.enabled = true;
                 _EnemyImage.sprite = _Enemies[2];
+<<<<<<< Updated upstream
+=======
+                _PlayerImage.enabled = true;
+                _PlayerImage.sprite = _Players[2];
+>>>>>>> Stashed changes
             }
 
             if(_Lvl == 3)
