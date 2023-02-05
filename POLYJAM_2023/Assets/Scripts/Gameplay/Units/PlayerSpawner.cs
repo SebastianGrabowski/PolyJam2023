@@ -13,6 +13,8 @@ namespace Gameplay.Units
 
         private PlayerUnit _ActiveUnit;
 
+        public static bool LockByHoverGod;
+
         private Plane _Plane;
 
         private bool _Active;
@@ -58,8 +60,8 @@ namespace Gameplay.Units
                 {
                     pos = ray.GetPoint(distance);
                     var d = Vector2.Distance(Vector2.zero, pos);
-                    validDistance = d > 4.0f;
-                    _Pointer.color = validDistance ? _ValidColor : _InvalidColor;
+                    validDistance = true;// d > 4.0f;
+                    _Pointer.color = validDistance && !LockByHoverGod ? _ValidColor : _InvalidColor;
                 } else
                 {
                     return;
@@ -68,7 +70,7 @@ namespace Gameplay.Units
                 _Pointer.transform.position = pos;
 
 
-                if(Input.GetMouseButtonDown(0) && validDistance)
+                if(Input.GetMouseButtonDown(0) && validDistance && !LockByHoverGod)
                 {
                     //spawn
                     if (_ActiveUnit.Cost <= CurrencyController.Value)

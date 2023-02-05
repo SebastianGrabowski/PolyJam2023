@@ -45,7 +45,7 @@ public class GodObject : MonoBehaviour
     public void OnMouseOverGod()
     {
         isMouseOver = true;
-
+        PlayerSpawner.LockByHoverGod = true;
         //var scale = (2 * GodData.GetSkillByType(SkillType.Range).GetValue(GodData));
         // rangeTemp.transform.localScale = new Vector3(scale, scale, rangeDisplayer.transform.localScale.z);
 
@@ -56,6 +56,7 @@ public class GodObject : MonoBehaviour
 
     public void MouseExitGod()
     {
+        PlayerSpawner.LockByHoverGod = false;
         isMouseOver = false;
         spriteRenderer.sprite = GodData.Sprite;
         rangeDisplayer.gameObject.SetActive(false);
