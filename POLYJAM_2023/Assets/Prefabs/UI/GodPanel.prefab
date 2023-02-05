@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeSkillLevel: {fileID: 21300000, guid: 5aca9b041c02de14588c5739cb972bd7, type: 3}
+  skillCost: {fileID: 1280149581210297279}
   skillValue: {fileID: 6526853206382771513}
   levelBoxDisplay:
   - {fileID: 5868832472248393295}
@@ -493,8 +494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -80}
-  m_SizeDelta: {x: 280, y: 100}
+  m_AnchoredPosition: {x: 0, y: -85.36731}
+  m_SizeDelta: {x: 280, y: 84.043}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &558105481360722089
 CanvasRenderer:
@@ -527,8 +528,8 @@ MonoBehaviour:
   m_text: "Obro\u0144ca magicznego drzewa, opis dzialania jego umiejetnosci itd.
     lorem ipsum lorem ipsum"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fa7bed6e1f8b03d47b19045306c9e37e, type: 2}
-  m_sharedMaterial: {fileID: 6902784950817532658, guid: fa7bed6e1f8b03d47b19045306c9e37e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 08a6f43a6e173334eaabc0ce293cad8f, type: 2}
+  m_sharedMaterial: {fileID: 6902784950817532658, guid: 08a6f43a6e173334eaabc0ce293cad8f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -560,7 +561,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -630,7 +631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -187.70001}
+  m_AnchoredPosition: {x: 0, y: -169.41}
   m_SizeDelta: {x: 280, y: 185.308}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &558105481472264286
@@ -732,7 +733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -808,7 +809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -920,7 +921,7 @@ GameObject:
   - component: {fileID: 7616750980826794278}
   - component: {fileID: 1280149581210297279}
   m_Layer: 5
-  m_Name: SkillCostLabel
+  m_Name: CostValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1254,7 +1255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1330,7 +1331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1422,7 +1423,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.1, y: 0}
+  m_AnchoredPosition: {x: 35.7, y: 0}
   m_SizeDelta: {x: 81.96, y: 69.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8014296032363773555
@@ -1578,8 +1579,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -38.3582, y: -0.000015258789}
-  m_SizeDelta: {x: 76.7162, y: 51.613}
+  m_AnchoredPosition: {x: -35.3654, y: 0}
+  m_SizeDelta: {x: 70.7306, y: 51.613}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8333017808216434969
 GameObject:

@@ -6,6 +6,9 @@ using Gameplay;
 public class SkillItem : MonoBehaviour
 {
     [SerializeField] private Sprite activeSkillLevel;
+    
+    [Space(10)]
+    [SerializeField] private TextMeshProUGUI skillCost;
     [SerializeField] private TextMeshProUGUI skillValue;
 
     [Space(10)]
@@ -23,6 +26,7 @@ public class SkillItem : MonoBehaviour
         var skill = godData.GetSkillByType(skillType);
         var skillLevel = godData.SkillLevels[(int)skillType];
 
+        skillCost.text = skill.GetCost(godData).ToString();
         skillValue.text = $"{skillType}: {skill.GetValue(godData)}";
 
         for(int i = 0; i < skillLevel + 1; i++)
@@ -33,9 +37,9 @@ public class SkillItem : MonoBehaviour
 
     public void UpgradeSkill()
     {
-        var skillCost = godData.GetSkillByType(skillType).GetCost(godData);
+        var cost = godData.GetSkillByType(skillType).GetCost(godData);
 
-        if(CurrencyController.Value >= skillCost) CurrencyController.Value -= skillCost;
+        if(CurrencyController.Value >= cost) CurrencyController.Value -= cost;
         else return;
 
         AudioController.Instance.PlaySound(_UpgradeSound);
@@ -43,6 +47,7 @@ public class SkillItem : MonoBehaviour
         var skillLevel = godData.SkillLevelUp(skillType);
         var skill = godData.GetSkillByType(skillType);
 
+        skillCost.text = skill.GetCost(godData).ToString();
         skillValue.text = $"{skillType}: {skill.GetValue(godData)}";
 
         for(int i = 0; i < skillLevel + 1; i++)

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class UpgradeButton : MonoBehaviour, IPointerEnterHandler
+public class UpgradeButton : MonoBehaviour
 {
     private GodPanel godPanel;
     public SkillType SkillType { get; private set; }
@@ -16,13 +16,13 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler
         this.SkillType = skillType;
     }
 
-    public void OnButtonClick()
-    {
-        godPanel.OnSkillUpgradeHover(SkillType);
-    }
+    // public void OnButtonClick()
+    // {
+    //     godPanel.OnSkillUpgradeHover(SkillType);
+    // }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        godPanel.OnSkillUpgradeHover(SkillType);
-    }
+    // public void OnPointerEnter(PointerEventData eventData)
+    // {
+    //     godPanel.OnSkillUpgradeHover(SkillType);
+    // }
 }

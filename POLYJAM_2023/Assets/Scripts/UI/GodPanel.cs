@@ -71,11 +71,11 @@ public class GodPanel : MonoBehaviour
         //LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
     }
 
-    public void OnSkillUpgradeHover(SkillType skillType)
-    {
-        var cost = godData.GetSkillByType(skillType).GetCost(godData);
-        skillCost.text = "Skill cost: "+cost+" currency";
-    }
+    // public void OnSkillUpgradeHover(SkillType skillType)
+    // {
+    //     var cost = godData.GetSkillByType(skillType).GetCost(godData);
+    //     skillCost.text = cost.ToString();
+    // }
 
     private void OnCurrencySpent()
     {
