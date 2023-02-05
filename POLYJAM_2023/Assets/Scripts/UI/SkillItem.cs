@@ -5,11 +5,8 @@ using Gameplay;
 
 public class SkillItem : MonoBehaviour
 {
+    [SerializeField] private Sprite activeSkillLevel;
     [SerializeField] private TextMeshProUGUI skillValue;
-
-    [Space(10)]
-    [SerializeField] private Color unactive;
-    [SerializeField] private Color active;
 
     [Space(10)]
     [SerializeField] private Image[] levelBoxDisplay;
@@ -30,7 +27,7 @@ public class SkillItem : MonoBehaviour
 
         for(int i = 0; i < skillLevel + 1; i++)
         {
-            if(i <= levelBoxDisplay.Length-1) levelBoxDisplay[i].color = active;
+            if(i <= levelBoxDisplay.Length-1) levelBoxDisplay[i].sprite = activeSkillLevel;
         }   
     }
 
@@ -50,7 +47,7 @@ public class SkillItem : MonoBehaviour
 
         for(int i = 0; i < skillLevel + 1; i++)
         {
-            if(i <= levelBoxDisplay.Length-1) levelBoxDisplay[i].color = active;
+            if(i <= levelBoxDisplay.Length-1) levelBoxDisplay[i].sprite = activeSkillLevel;
         }
     }
 }
