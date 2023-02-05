@@ -36,15 +36,6 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnGods());
     }
 
-    private IEnumerator Start()
-    {
-        yield return new WaitForSeconds(2.0f);
-        if (RunCount == 0)
-        {
-            HandleHelp();
-        }
-        RunCount++;
-    }
 
     public static float DT;
     public static float ScaleTime;
@@ -115,6 +106,17 @@ public class GameController : MonoBehaviour
 
             i++;
         }
+            
+        yield return new WaitForSeconds(1.0f);
+        Pause = true;
+        while (!Input.anyKey)
+        {
+            yield return null;
+        }
+        var helpers = GameObject.FindGameObjectsWithTag("Helper");
+        foreach(var h in helpers)
+            h.SetActive(false);
+        Pause = false;
     }
 
     public void HandleGameOver()
