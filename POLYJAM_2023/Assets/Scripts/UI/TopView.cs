@@ -46,8 +46,12 @@ namespace UI
                 }
             }
         }
+
+        private float _EnableTime;
+
         private void OnEnable()
         {
+            _EnableTime = Time.timeSinceLevelLoad;
             Gameplay.CurrencyController.OnChanged += UpdateCurrency;
             var tree = FindObjectOfType<Gameplay.Tree>();
             tree.OnChangeHP += UpdateHealth;
@@ -107,9 +111,15 @@ namespace UI
                     _CurrencyLabel.transform.localScale = Vector3.Lerp(Vector3.one * 1.3f, Vector3.one, n);
                 }
 
+                
+                var lockSound = false;
+                var runTime = Time.timeSinceLevelLoad - _EnableTime;
+                if(runTime < 3.0f)
+                    lockSound = true;
+
                 t += Time.deltaTime;
                 var v = Mathf.SmoothStep(startV, finalV, t/maxt);
-                if((int)v != _LastCurrency && playSound)
+                if((int)v != _LastCurrency && playSound && !lockSound)
                 {
                     AudioController.Instance?.PlaySound(_CurrencySound);
                 }
