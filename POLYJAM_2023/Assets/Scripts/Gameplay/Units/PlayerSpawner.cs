@@ -36,6 +36,8 @@ namespace Gameplay.Units
             _Plane = new Plane(Vector3.forward, 0.0f);
         }
 
+        public Unit ActiveUnit => _ActiveUnit;
+
         public void SetUnit(PlayerUnit unit)
         {
             _ActiveUnit = unit;

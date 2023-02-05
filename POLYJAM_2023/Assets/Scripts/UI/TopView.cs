@@ -16,6 +16,7 @@ namespace UI
         [SerializeField]private TextMeshProUGUI _HealthLabel;
         [SerializeField]private AudioClip _CurrencySound;
         [SerializeField]private Image _HealthFill;
+        [SerializeField]private Image _Effect;
 
         private int _LastCurrency;
 
@@ -27,6 +28,24 @@ namespace UI
             UpdateTime();
         }
 
+        private IEnumerator UpdateX()
+        {
+            while (true)
+            {
+                var r = Random.Range(0.0f, 1.0f);
+                var t = 0.0f;
+                var maxt = Random.Range(0.1f, 1.0f);
+                var startColor = _Effect.color;
+                var endColor = new Color(1.0f, 1.0f, 1.0f, r);
+                while(t < maxt)
+                {
+                    var c = Color.Lerp(startColor, endColor, t/maxt);
+                    _Effect.color = c;
+                    t+=Time.deltaTime;
+                    yield return null;
+                }
+            }
+        }
         private void OnEnable()
         {
             Gameplay.CurrencyController.OnChanged += UpdateCurrency;
@@ -43,6 +62,8 @@ namespace UI
                 "{0}/{1}",
                 ((int)tree.HP).ToString(),
                 ((int)tree.BaseHP).ToString());
+
+            StartCoroutine(UpdateX());
         }
 
         private void OnDisable()
@@ -113,14 +134,15 @@ namespace UI
             if(tree != null)
             {
                 _HealthLabel.text = string.Format(
-                    "{0}/{1}",
+                    "{0}<color=#3F1C1E>/{1}</color>",
                     ((int)tree.HP).ToString(),
                     ((int)tree.BaseHP).ToString());
-                if(_CoroutineHP != null)
-                {
-                    StopCoroutine(_CoroutineHP);
-                }
-                _CoroutineHP = StartCoroutine(UpdateHealthDiff(diff));
+                _HealthFill.fillAmount = tree.HP / tree.BaseHP;
+                //if(_CoroutineHP != null)
+                //{
+                //    StopCoroutine(_CoroutineHP);
+                //}
+                //_CoroutineHP = StartCoroutine(UpdateHealthDiff(diff));
             }
         }
 
@@ -138,7 +160,6 @@ namespace UI
                 _HealthFill.fillAmount =  v;
                 yield return null;
             }
-            _HealthFill.fillAmount = tree.HP / tree.BaseHP;
         }
         public void PauseClickHandler()
         {

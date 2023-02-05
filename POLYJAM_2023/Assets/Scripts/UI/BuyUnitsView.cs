@@ -14,7 +14,13 @@ namespace UI
         [SerializeField]private Gameplay.Units.PlayerUnit[] _Units;
         [SerializeField]private Gameplay.Units.PlayerSpawner _PlayerSpawner;
 
+        [SerializeField]private Sprite[] _UnlockedIcons;
+        [SerializeField]private Sprite[] _LockedIcons;
+
+
         private List<Button> _Buttons = new List<Button>();
+
+        private List<Image> _Connectors = new List<Image>();
 
         private God[] Gods;
         private bool ready;
@@ -23,6 +29,8 @@ namespace UI
         {
             if (ready)
             {
+               var activeUnit = _PlayerSpawner.ActiveUnit;
+
                 var time = Gameplay.TimeController.Value;
                 for(var i = 0; i < _Buttons.Count; i++)
                 {
@@ -30,8 +38,11 @@ namespace UI
                     {
                         if (Gods[j].ID == i)
                         {
-                            _Buttons[i].interactable = time >= Gods[j].TimeToUnlock;
-                            _Buttons[i].image.raycastTarget = _Buttons[i].interactable;
+                            var unlocked = time >= Gods[j].TimeToUnlock;
+                            _Buttons[i].image.sprite = unlocked ? _Units[i].IconUnlocked : _Units[i].IconLocked;
+                            _Connectors[i].gameObject.SetActive(activeUnit == _Units[i]);
+                            _Buttons[i].interactable = unlocked;
+                            _Buttons[i].image.raycastTarget = unlocked;
                         }
                     }
                 }
@@ -53,24 +64,15 @@ namespace UI
                 var headerLabel = newItem.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
                 headerLabel.text = _Units[i].DisplayName;
 
-                var descLabel = newItem.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
-                descLabel.text = _Units[i].DisplayDesc;
-
-                var costLabel = newItem.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+                var costLabel = newItem.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
                 costLabel.text = _Units[i].Cost.ToString();
                 
-                yield return null;
-                LayoutRebuilder.ForceRebuildLayoutImmediate(headerLabel.rectTransform);
-                LayoutRebuilder.ForceRebuildLayoutImmediate(descLabel.rectTransform);
-                LayoutRebuilder.ForceRebuildLayoutImmediate(costLabel.rectTransform);
-                yield return null;
-                LayoutRebuilder.ForceRebuildLayoutImmediate(newItem.transform.GetChild(0).GetComponent<RectTransform>());
-
-                yield return null;
+                var connector = newItem.transform.GetChild(1).GetComponent<Image>();
+                _Connectors.Add(connector);
 
                 var a = newItem.transform.GetChild(0);
                 a.gameObject.SetActive(false);
-                newItem.image.sprite = _Units[i].BuyIcon;
+                //newItem.image.sprite = _Units[i].BuyIcon;
                 newItem.onClick.AddListener(
                     () =>
                     {
