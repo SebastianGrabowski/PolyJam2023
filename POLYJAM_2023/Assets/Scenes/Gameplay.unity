@@ -1861,6 +1861,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorImage: {fileID: 1539889731}
   cursorImageOnMap: {fileID: 1357956259}
+  cursorOnMapX: {fileID: 857994110}
+  onMapXGreen: {fileID: 21300000, guid: 282d130e143e7084288e143ca4bb73b5, type: 3}
+  onMapXRed: {fileID: 21300000, guid: 4bfd5de56290be6438dd6f9dfad723fd, type: 3}
 --- !u!1 &1718572634
 GameObject:
   m_ObjectHideFlags: 0

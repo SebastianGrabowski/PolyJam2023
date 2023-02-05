@@ -68,7 +68,7 @@ public class GodObject : MonoBehaviour
 
     private void DisplayLockedGod()
     {
-        circleCollider2D.enabled = false;
+        //circleCollider2D.enabled = false;
         boxCollider2D.enabled = false;
         hasBeenUnlocked = false;
         
@@ -82,7 +82,7 @@ public class GodObject : MonoBehaviour
 
     public void UnlockGod()
     {
-        circleCollider2D.enabled = true;
+        ///circleCollider2D.enabled = true;
         boxCollider2D.enabled = true;
 
         spriteRenderer.sprite = GodData.Sprite;
@@ -97,7 +97,7 @@ public class GodObject : MonoBehaviour
 
     public void OnMouseOverGod()
     {
-        if(GameController.Instance.Pause) return;
+        if(GameController.Instance.Pause || !isUnlocked) return;
 
         isMouseOver = true;
         PlayerSpawner.LockByHoverGod = true;
@@ -111,6 +111,8 @@ public class GodObject : MonoBehaviour
 
     public void MouseExitGod()
     {
+        if(GameController.Instance.Pause || !isUnlocked) return;
+        
         PlayerSpawner.LockByHoverGod = false;
         isMouseOver = false;
         spriteRenderer.sprite = GodData.Sprite;

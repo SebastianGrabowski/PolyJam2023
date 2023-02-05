@@ -35,6 +35,7 @@ namespace Gameplay.Units
         private void Start()
         {
             _Plane = new Plane(Vector3.forward, 0.0f);
+            CurrencyController.OnChanged += SetCursorAvailaity;
         }
 
         public Unit ActiveUnit => _ActiveUnit;
@@ -43,6 +44,14 @@ namespace Gameplay.Units
         {
             _ActiveUnit = unit;
             Active = _ActiveUnit != null;
+        }
+
+        private void SetCursorAvailaity()
+        {
+            if(_ActiveUnit == null) return;
+
+            var canPlace = _ActiveUnit.Cost <= CurrencyController.Value;
+            _Cursor.SetCursorOnMapAvailabity(canPlace);
         }
 
         // Update is called once per frame
@@ -57,6 +66,8 @@ namespace Gameplay.Units
             {
                 if(LockByHoverGod || UIController.Instance.IsOverUI) _Cursor.SetCursor(false);
                 else _Cursor.SetCursor(true);
+
+
                 
                 var validDistance = false;
                 Vector2 pos = Vector2.zero;
@@ -90,6 +101,11 @@ namespace Gameplay.Units
                     SetUnit(null);
                 }
             }
+        }
+
+        private void OnDestroy()
+        {
+            CurrencyController.OnChanged -= SetCursorAvailaity;
         }
     }
 }
