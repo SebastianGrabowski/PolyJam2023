@@ -357,6 +357,7 @@ MonoBehaviour:
   MoveSpeed: 1.4
   _BuffSound: {fileID: 8300000, guid: 20785164c12a92543878dedcd476a6a1, type: 3}
   BuffIcon: {fileID: 4122994521265882144}
-  BuyIcon: {fileID: 21300000, guid: becc57fde6e74134db6c96015eb5f876, type: 3}
+  IconUnlocked: {fileID: 21300000, guid: e0fb190193b4e934bbaba2c34fbf02a2, type: 3}
+  IconLocked: {fileID: 21300000, guid: 1c188b72883f3234ab298fdeff354fe9, type: 3}
   Cost: 50
   GodOwnerID: 0

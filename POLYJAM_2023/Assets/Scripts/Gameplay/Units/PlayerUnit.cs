@@ -9,7 +9,8 @@ namespace Gameplay.Units
         [SerializeField]private AudioClip _BuffSound;
 
         [SerializeField] public GameObject BuffIcon;
-        public Sprite BuyIcon;
+        public Sprite IconUnlocked;
+        public Sprite IconLocked;
         public int Cost;
         public int GodOwnerID;
         
