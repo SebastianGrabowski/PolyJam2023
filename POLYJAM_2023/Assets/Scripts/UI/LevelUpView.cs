@@ -90,7 +90,7 @@ namespace UI
                 _EnemyImage.enabled = true;
                 _EnemyImage.sprite = _Enemies[1];
                 _PlayerImage.enabled = true;
-                _EnemyImage.sprite = _Players[1];
+                _PlayerImage.sprite = _Players[1];
             }
             
             if(_Lvl == 2)
@@ -103,7 +103,7 @@ namespace UI
                 _EnemyImage.enabled = true;
                 _EnemyImage.sprite = _Enemies[2];
                 _PlayerImage.enabled = true;
-                _EnemyImage.sprite = _Players[2];
+                _PlayerImage.sprite = _Players[2];
             }
 
             if(_Lvl == 3)
