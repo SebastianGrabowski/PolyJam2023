@@ -6,6 +6,7 @@ using TMPro;
 public class DamageLabelsController : MonoBehaviour
 {
     [SerializeField]private TextMeshPro _Template;
+    [SerializeField]private Color _C;
 
     private void OnEnable()
     {
@@ -22,8 +23,8 @@ public class DamageLabelsController : MonoBehaviour
         var newItem = Instantiate(_Template);
         newItem.gameObject.SetActive(true);
         newItem.text = ((int)value).ToString();
-        newItem.color = isPlayer ? Color.red : Color.yellow;
-        newItem.transform.position = pos;
+        newItem.color = isPlayer ? _C : Color.yellow;
+        newItem.transform.position = pos + Random.insideUnitCircle;
         Destroy(newItem.gameObject, 1.5f);
     }
 }
