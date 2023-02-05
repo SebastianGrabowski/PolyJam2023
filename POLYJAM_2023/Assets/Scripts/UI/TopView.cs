@@ -134,7 +134,7 @@ namespace UI
             if(tree != null)
             {
                 _HealthLabel.text = string.Format(
-                    "{0}/{1}",
+                    "{0}<color=#3F1C1E>/{1}</color>",
                     ((int)tree.HP).ToString(),
                     ((int)tree.BaseHP).ToString());
                 _HealthFill.fillAmount = tree.HP / tree.BaseHP;
