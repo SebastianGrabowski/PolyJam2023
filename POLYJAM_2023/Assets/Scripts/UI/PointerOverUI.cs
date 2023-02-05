@@ -15,12 +15,10 @@ public class PointerOverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         UIController.Instance.IsOverUI = true;
-        Debug.Log("IsOverUI: "+UIController.Instance.IsOverUI);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         UIController.Instance.IsOverUI = false;
-        Debug.Log("IsOverUI: "+UIController.Instance.IsOverUI);
     }
 }

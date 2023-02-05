@@ -97,6 +97,8 @@ public class GodObject : MonoBehaviour
 
     public void OnMouseOverGod()
     {
+        if(GameController.Instance.Pause) return;
+
         isMouseOver = true;
         PlayerSpawner.LockByHoverGod = true;
         //var scale = (2 * GodData.GetSkillByType(SkillType.Range).GetValue(GodData));
@@ -139,7 +141,7 @@ public class GodObject : MonoBehaviour
         {
             if(!isUnlocked) return;
             
-            if(isMouseOver && Input.GetMouseButtonDown(0)) UIController.Instance.OnGodSelected?.Invoke(GodData);
+            if(isMouseOver && Input.GetMouseButtonDown(0) && !GameController.Instance.Pause) UIController.Instance.OnGodSelected?.Invoke(GodData);
 
             if(Time.time >= timeElapsed)
             {
