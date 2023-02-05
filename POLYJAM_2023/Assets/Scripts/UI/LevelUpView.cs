@@ -79,7 +79,7 @@ namespace UI
             {
                 _NewGodLabel.text = "Statua idola - Perun - zosta³a odblokowana!";
                 _NewUnitLabel.transform.parent.gameObject.SetActive(true);
-                _NewUnitLabel.text = "Nowa jednostka broni¹ca - Baba jaga odblokowana";
+                _NewUnitLabel.text = "Nowa jednostka broni¹ca - Baba Jaga odblokowana";
                 _NewEnemyLabel.transform.parent.gameObject.SetActive(true);
                 _NewEnemyLabel.text = "Wrogie elfy nadci¹gaj¹!";
                 _EnemyImage.enabled = true;
