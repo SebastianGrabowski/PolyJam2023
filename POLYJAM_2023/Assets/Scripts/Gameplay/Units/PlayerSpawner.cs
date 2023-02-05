@@ -6,6 +6,7 @@ namespace Gameplay.Units
 
     public class PlayerSpawner : MonoBehaviour
     {
+        [SerializeField]private CursorScript _Cursor;
         [SerializeField]private SpriteRenderer _Pointer;
         [SerializeField]private Camera _Cam;
         [SerializeField]private Color _ValidColor;
@@ -26,7 +27,9 @@ namespace Gameplay.Units
                 if(_Active != value)
                 {
                     _Active = value;
-                    _Pointer.gameObject.SetActive(_Active);
+                    //_Pointer.gameObject.SetActive(_Active);
+                    if(_Active) _Cursor.CursorSetOnMap();
+                    else _Cursor.CursorSetBasic();
                 }
             }
         }
@@ -63,7 +66,7 @@ namespace Gameplay.Units
                     pos = ray.GetPoint(distance);
                     var d = Vector2.Distance(Vector2.zero, pos);
                     validDistance = true;// d > 4.0f;
-                    _Pointer.color = validDistance && !LockByHoverGod ? _ValidColor : _InvalidColor;
+                    //_Pointer.color = validDistance && !LockByHoverGod ? _ValidColor : _InvalidColor;
                 } else
                 {
                     return;
