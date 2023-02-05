@@ -17,6 +17,7 @@ namespace UI
         [SerializeField]private Sprite[] _UnlockedIcons;
         [SerializeField]private Sprite[] _LockedIcons;
 
+        [SerializeField]private Transform _Helper;
 
         private List<Button> _Buttons = new List<Button>();
 
@@ -83,6 +84,8 @@ namespace UI
             }
             Gods = Resources.LoadAll<God>("");
             ready = true;
+
+            _Helper.SetAsLastSibling();
         }
     }
 }
