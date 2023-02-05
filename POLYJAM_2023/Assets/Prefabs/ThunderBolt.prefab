@@ -186,11 +186,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb2c98a4d374a24ca78ae3309b5e23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Sound: {fileID: 8300000, guid: c57fd8ba1ddf03e499dbfa025ceb8396, type: 3}
   velocity: 0
   timeToDestroy: 1
   particleTransform: {fileID: 0}
   abilityType: 0
-  Damage: 0
+  GodAbillityValue: 0
 --- !u!95 &4211455233815464256
 Animator:
   serializedVersion: 4

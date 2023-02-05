@@ -70,7 +70,7 @@ namespace Gameplay.Units
                 _Pointer.transform.position = pos;
 
 
-                if(Input.GetMouseButtonDown(0) && validDistance && !LockByHoverGod)
+                if(Input.GetMouseButtonDown(0) && validDistance && !LockByHoverGod && !UIController.Instance.IsOverUI)
                 {
                     //spawn
                     if (_ActiveUnit.Cost <= CurrencyController.Value)

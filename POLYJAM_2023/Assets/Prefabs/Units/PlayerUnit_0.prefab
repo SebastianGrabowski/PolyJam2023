@@ -271,6 +271,7 @@ MonoBehaviour:
   AttackSpeed: 0.25
   AttackRange: 4
   MoveSpeed: 2
+  _BuffSound: {fileID: 8300000, guid: 20785164c12a92543878dedcd476a6a1, type: 3}
   BuffIcon: {fileID: 2816726071493446491}
   BuyIcon: {fileID: 21300000, guid: 9f6a0fc8997a79c4a8e78bed499302cb, type: 3}
   Cost: 10

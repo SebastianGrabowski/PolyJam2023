@@ -5,6 +5,8 @@ using Gameplay.Units;
 
 public class Abillity : MonoBehaviour
 {
+    [SerializeField]private AudioClip _Sound;
+
     [SerializeField] private float velocity;
     [SerializeField] private float timeToDestroy;
     
@@ -69,6 +71,14 @@ public class Abillity : MonoBehaviour
             var dir = ((Vector2)targetTransform.position - (Vector2)transform.position).normalized;
             rb.velocity = dir * velocity;
             particleTransform.transform.rotation = transform.rotation;
+        }
+    }
+
+    private void Start()
+    {
+        if(_Sound != null)
+        {
+            AudioController.Instance.PlaySound(_Sound);
         }
     }
 }

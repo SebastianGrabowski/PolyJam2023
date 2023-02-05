@@ -13,6 +13,7 @@ public class SkillItem : MonoBehaviour
 
     [Space(10)]
     [SerializeField] private Image[] levelBoxDisplay;
+    [SerializeField]private AudioClip _UpgradeSound;
     
     private GodData godData;
     private SkillType skillType;
@@ -39,6 +40,8 @@ public class SkillItem : MonoBehaviour
 
         if(CurrencyController.Value >= skillCost) CurrencyController.Value -= skillCost;
         else return;
+
+        AudioController.Instance.PlaySound(_UpgradeSound);
 
         var skillLevel = godData.SkillLevelUp(skillType);
         var skill = godData.GetSkillByType(skillType);
