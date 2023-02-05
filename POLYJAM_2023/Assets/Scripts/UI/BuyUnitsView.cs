@@ -14,14 +14,41 @@ namespace UI
         [SerializeField]private Gameplay.Units.PlayerUnit[] _Units;
         [SerializeField]private Gameplay.Units.PlayerSpawner _PlayerSpawner;
 
+        private List<Button> _Buttons = new List<Button>();
+
+        private God[] Gods;
+        private bool ready;
+
+        private void Update()
+        {
+            if (ready)
+            {
+                var time = Gameplay.TimeController.Value;
+                for(var i = 0; i < _Buttons.Count; i++)
+                {
+                    for(var j = 0; j < Gods.Length; j++)
+                    {
+                        if (Gods[j].ID == i)
+                        {
+                            _Buttons[i].interactable = time >= Gods[j].TimeToUnlock;
+                            _Buttons[i].image.raycastTarget = _Buttons[i].interactable;
+                        }
+                    }
+                }
+            }
+        }
+
         private IEnumerator Start()
         {
+            ready = false;
             for(var i = 0; i < _Units.Length; i++)
             {
                 var j = i;
                 var newItem = Instantiate(_Template, _Template.transform.parent);
                 newItem.gameObject.SetActive(true);
                 yield return null;
+
+                _Buttons.Add(newItem);
 
                 var headerLabel = newItem.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
                 headerLabel.text = _Units[i].DisplayName;
@@ -52,6 +79,8 @@ namespace UI
                     }
                     );
             }
+            Gods = Resources.LoadAll<God>("");
+            ready = true;
         }
     }
 }

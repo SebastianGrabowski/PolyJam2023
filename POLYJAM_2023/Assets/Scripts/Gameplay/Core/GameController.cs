@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Transform[] targetPositions;
 
     private God[] availableGods;
-    private List<GodData> currentGods = new List<GodData>();
+    public List<GodData> currentGods = new List<GodData>();
 
     public UnityAction OnGameOver { get; set; }
     public UnityAction OnPauseMenu { get; set; }
