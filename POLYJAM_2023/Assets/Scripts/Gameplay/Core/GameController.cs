@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class GameController : MonoBehaviour
 {
 
+    [SerializeField] private CursorScript cursorScript;
     [SerializeField] private GodObject godObject;
     [SerializeField] private Transform[] spawnPositions;
     [SerializeField] private Transform[] targetPositions;
@@ -121,6 +122,7 @@ public class GameController : MonoBehaviour
 
     public void HandleGameOver()
     {
+        cursorScript.SetCursor(false);
         IsGameOver = true;
         OnGameOver?.Invoke();
     }

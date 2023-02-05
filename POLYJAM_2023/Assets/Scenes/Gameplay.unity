@@ -2811,6 +2811,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 3856860584152564469, guid: e435fa4482790fc4b8256b8840b9b60b, type: 3}
+      propertyPath: cursorScript
+      value: 
+      objectReference: {fileID: 1696128853}
     - target: {fileID: 3856860584152564470, guid: e435fa4482790fc4b8256b8840b9b60b, type: 3}
       propertyPath: m_RootOrder
       value: 4

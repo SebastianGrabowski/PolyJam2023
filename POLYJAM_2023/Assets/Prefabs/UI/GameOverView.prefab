@@ -411,7 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -502,6 +502,7 @@ GameObject:
   - component: {fileID: 376987024469089389}
   - component: {fileID: 9014705727087828663}
   - component: {fileID: 1227863847429224244}
+  - component: {fileID: 5863200301492506819}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -636,6 +637,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5863200301492506819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432112277899552783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67028cfa8b0d0cf49b02c6374d93ecf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5405123101219890565
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +662,7 @@ GameObject:
   - component: {fileID: 781826560504228028}
   - component: {fileID: 1954859552873835804}
   - component: {fileID: 4070605298288733291}
+  - component: {fileID: 7880503588499793807}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -783,6 +797,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7880503588499793807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5405123101219890565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67028cfa8b0d0cf49b02c6374d93ecf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7739951191128826099
 GameObject:
   m_ObjectHideFlags: 0

@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 96af1ed1dfce352489ab05aa113a27a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6881603275728757329}
   - component: {fileID: 6881603275728757330}
+  - component: {fileID: 1025075428319123272}
   m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
@@ -169,6 +170,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!210 &1025075428319123272
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6881603275728757328}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &6881603276852990986
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +234,7 @@ MonoBehaviour:
   _AnimAngleMinMax: 5
   _AnimAngleSpeed: 5
   _AnimJumpPos: {x: 0, y: 0.05, z: 0}
-  _AttackSound: {fileID: 8300000, guid: 146fba6e019e80544942274bb0801155, type: 3}
+  _AttackSound: {fileID: 0}
   _DeathSound: {fileID: 8300000, guid: 4b41ea0053303be48ad493a7539538fb, type: 3}
   _SpawnSound: {fileID: 0}
   _Glow: {fileID: 3363533719093792571}
